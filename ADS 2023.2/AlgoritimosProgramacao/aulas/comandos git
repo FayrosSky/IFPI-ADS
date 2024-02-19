@@ -1,0 +1,2 @@
+ls -la para listar o repositório do git criado
+rm -Rf .git/ >>> para remover o diretório git cria

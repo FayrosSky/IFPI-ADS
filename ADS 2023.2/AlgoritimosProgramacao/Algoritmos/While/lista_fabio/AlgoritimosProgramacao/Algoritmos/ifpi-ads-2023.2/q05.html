@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Ascending Order</title>
+</head>
+<body>
+    <form id="numberForm">
+        <label for="num1">Enter a number:</label>
+        <input type="number" id="num1" required>
+        <br>
+
+        <label for="num2">Enter a second number:</label>
+        <input type="number" id="num2" required>
+        <br>
+
+        <label for="num3">Enter a third number:</label>
+        <input type="number" id="num3" required>
+        <br>
+
+        <button type="button" onclick="findGreatestNumber()">Find ascending order</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        function findGreatestNumber() {
+            const num1 = parseInt(document.getElementById("num1").value);
+            const num2 = parseInt(document.getElementById("num2").value);
+            const num3 = parseInt(document.getElementById("num3").value);
+
+            let first_largest_number;
+            let second_largest_number;
+            let third_largest_number;
+
+            if (num1 >= num2 && num2 >= num3) {
+                first_largest_number = num1;
+                second_largest_number = num2;
+                third_largest_number = num3;
+            } else if (num2 >= num3 && num3 >= num1) {
+                first_largest_number = num2;
+                second_largest_number = num3;
+                third_largest_number = num1;
+            } else {
+                first_largest_number = num3;
+                second_largest_number = num2;
+                third_largest_number = num1;
+            }
+
+            const order = `${first_largest_number}, ${second_largest_number}, ${third_largest_number}`;
+            document.getElementById("result").textContent = `The ascending order of the numbers ${num1}, ${num2}, and ${num3} is: ${order}`;
+        }
+    </script>
+</body>
+</html>

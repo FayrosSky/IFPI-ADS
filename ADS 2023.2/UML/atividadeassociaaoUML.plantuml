@@ -1,0 +1,52 @@
+@startuml atividade
+
+
+class trem_carga{
+    quant_passageiros: integer
+    velocidade()
+    aceleracao()
+}
+
+class trem_passageiro{
+    quant_passageiros: integer
+    velocidade()
+    aceleracao()
+}
+
+class trem_carga_passageiro{
+    quant_passageiros: integer
+    velocidade()
+    aceleracao()
+
+}
+
+class vagoes{
+    data_inicio: 
+}
+
+class motor{
+
+}
+
+
+class rota{
+
+}
+
+class localizacao{
+    
+}
+
+
+
+
+trem_carga "1" -- "1, 2" vagoes
+trem_passageiro "1" -- "1, 2" vagoes
+trem_carga_passageiro "1" -- "1, 2" vagoes
+
+trem_passageiro "1" -- "1..*" portas
+
+vagoes "1, 2"  -- "1"rota
+
+
+@enduml

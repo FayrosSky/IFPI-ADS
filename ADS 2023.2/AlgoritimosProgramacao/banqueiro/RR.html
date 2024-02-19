@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table.res {
+            border-collapse: collapse;
+        }
+
+        table.res th,
+        table.res td {
+            border: 1px solid black;
+        }
+        .executando{
+            background-color: yellow;
+        }
+        table.res th {text-align: right;} /* as regras do css é complementamente diferente do js, ou seja, o . não faz acesso por assim dizer */ 
+        table.res td {text-align: center;}
+    </style>
+    <script>
+        function criar_linha() {
+            document.getElementById("tarefas") //referencia o body
+            let t = document.getElementById("tarefas") // temos t que é referencia a tarefas
+            document.createElement("tr") //Criamos um elemento. Ele existe, mas ainda não tá no documento
+            let tr = document.createElement("tr") //Esse elemento tr existe, mas ainda não está no documento,apenas adicionamos ele a uma variável. 
+            t.append(tr) //O tr tava só flutuando... fazendo o append estamos amarrando o tr como o último filho do body.
+            //O innerHTML nos poupa de ficar dando vários appends
+            tr.innerHTML = `<td>   
+                        <input type="number">  
+                    </td>
+                    <td>
+                        <input type="number"> 
+                    </td>
+                    <td>
+                        <button onclick='apagar_linha(this)'>
+                            -
+                        </button>
+                    </td>`
+
+        }
+        function apagar_linha(botao) {
+            botao.parentElement.parentElement.remove()
+        }
+
+        function mostrar_resultado_RR() {
+            let tarefas = []
+            let tbody = document.getElementById('tarefas')  // uma função que precisamos chamar passando um parâmetro string como id. Isso retorna um objeto com referência ao tbody
+            for (let item of tbody.children) {
+                //console.log(item.querySelector()) //a função querySelector aceitar uma regra do css e nesse caso ele vai retornar o primeiro elemento filho de item que bater com a regra é assim que o css funciona, se quisessemos  o elemento tarefa a gente passava a função queryselector("#tarefas"), e ele retorna o próprio elemento tarefas dessa forma.
+
+                let inputs = item.querySelectorAll('input')
+
+                let ingresso = inputs[0].value
+                let Duração = inputs[1].value
+
+                tarefas.push({ ing: ingresso, dur: Duração, dur2: Duração }) // estamos criando um objeto com {}, e dentro do objeto podemos podemos definir quais os atributos(no caso ing e dur) desse objeto irão ser criados
+
+
+
+            }
+            console.log({ tarefas })
+            executar_RR(tarefas)    //Recebe os inputs e processa-os const input = [
+            /* [{"dur": 100, "ing": 100},
+            {"dur": 200, "ing": 40},
+            {"dur": 3400, "ing": 440},
+             ]
+        
+        [
+            {tarefa: "t4", tempo: 1},
+            {tarefa: "t4", tempo: 1},
+            {tarefa: "t2", tempo: 1},
+            {tarefa: "t4", tempo: 1},
+            {tarefa: "t2", tempo: 1},
+            {tarefa: "t3", tempo: 1},
+        ]
+         */
+
+        }
+
+        function mostrar_RR(output, qtd_tarefas, tempo_vida_medio, tempo_espera_medio) {
+            let mostrar = document.getElementById("output")
+            let tempos = ''
+            var arr = Array(qtd_tarefas).fill(``); //var arr = Array(arraySize).fill(value) criando um array de strings vazias
+            for(let i = 0; i < qtd_tarefas; i++){
+                arr[i] += `<td>${i}</td>` 
+
+            }
+            let tempo_atual = 0
+            for (let i = 0; i < output.length; ++i) {
+                tempo_atual += output[i].tempo  
+                tempos += `<th class = "tempo" width = "${20 * output[i].tempo}">${tempo_atual}</th>`
+                for (let j = 0 ; j < qtd_tarefas; ++j) {
+                    let tarefa_executa = output[i].tarefa
+                    if(tarefa_executa === j){
+                        arr[j] += `<td class = "executando" width = "${20 * output[i].tempo}">${output[i].tempo}</td>` //${} só funciona com strings de `` //width: largura do td em pixels //`${20 * output[i].tempo}` string tamplate = print(f"") no python, que a gente pode atribuir valores nelas 
+                    }else{
+                        arr[j] += `<td class = "esperando" width = "${20 * output[i].tempo}"></td>` //width: largura do td em pixels //`${20 * output[i].tempo}` string tamplate = print(f"") no python, que a gente pode atribuir valores nelas 
+                    }
+                }
+            }
+            mostrar.innerHTML =
+                `<table class = "res">
+                <thead>  
+                    <tr>
+                        <th>
+
+                        </th>
+                        ${tempos}
+                    </tr>       
+                </thead>
+                <tbody>
+                    ${arr.map(x => `<tr>`+x+`</tr>`).join(``)} 
+                </tbody>    
+            </table>
+            
+            <h4>Tempo de vida ${tempo_vida_medio.toFixed(2)}</h4>
+            <h4>Tempo de espera ${tempo_espera_medio.toFixed(2)}</h4>`
+            
+        }
+
+
+
+        function executar_RR(tarefas) {
+            const input = tarefas
+
+            //O tempo máximo que cada tarefa pode ser executada por vez
+            const quantum = Number(document.getElementById("quantum").value) //document.getElementById("quantum") está retornando um objeto que representa o input no documento... e esse objeto é "mágico" no sentido de que não podemos criar essa função, assim como não conseguimos criar uma função console.log//poderia ser const quantum = document["getElementById"]("quantum"), ou com o . pegamos uma propriedade de um objeto, sendo essa propriedade uma função, um número, um outro objeto(quando temos um vetor dentro de um vetor)
+            //[0][0] nesse caso primeiro colchete define um array, e o segundo define o valor do posição 0(nesse caso, nos retornaria 0), agora {"dur": 3}["dur"] nesse caso a gente tá definindo um objeto com a propriedade duração pelos {} e com um valor 3 pelos : . E estamos acessando essa valor via []. também poderíamos passar {"dur+!"}[]
+            //Os itens de um array são guardados na propriedade daquele objeto, a propriedade 0 de um vetor [a, b, c] é o a, asim como document tem a propriedade getElementById, arrays tem propriedades que é o indíce dela.
+
+            //A fila atual de tarefas que muda ao longo da execução
+            let list = []
+            for (let i = 0; i < input.length; i++) {
+                if (input[i].ing == 0) {
+                    list.push(i) //colocando as primeira tarefas a serem executadas
+                }
+            }
+            if (list.length == 0) {
+                alert("Digite o ingrensso com valor 0!")
+                return []         
+            }
+
+            // coloca as outras tarefas que também ingressam
+
+            let tempo = 0
+
+            let output = []  //Definindo o array de output
+            let total_tempo_vida = 0
+            let total_tempo_espera = 0 
+
+            let troca = Number(document.getElementById("troca").value);
+
+            while (true) {
+                //Calcula quanto tempo a gente vai executar a próxima tarefa
+                let menor = Math.min(quantum, input[list[0]].dur)  //nos retorna o menor valor dos argumentos
+
+                //Deduzindo do tempo de duração que foi executado
+                input[list[0]].dur -= menor //input[list[0]]["dur"]
+
+                //Executar, o output são os que foram executados, é tipo um relatório das tarefas que foram executadas
+                output.push({ tarefa: list[0], tempo: menor })
+                //Definindo o avanço do tempo que vai útil pra ser usado para identificar as tarefas que ingressaram
+                let comeco = tempo
+                tempo += menor
+                let fim = tempo
+                tempo += troca
+
+                //Colocar a tarefa que acabou de ser executada no fim da fila.
+                variavel_removida = list.shift()
+
+                if (input[variavel_removida].dur != 0) {
+                    list.push(variavel_removida)
+                }else{
+                    const tempo_vida = fim - input[variavel_removida].ing
+                    const tempo_espera = tempo_vida - input[variavel_removida].dur2
+                    console.log({tarefa: variavel_removida, fim: fim, comeco: input[variavel_removida].ing, tempo_vida});
+                    
+                    total_tempo_vida += tempo_vida
+                    total_tempo_espera += tempo_espera
+                }
+
+                indices_tarefas_ingressaram = []
+
+                //Adicionando as tarefas que ingressaram em um vetor vazio.
+                for (let i = 0; i < input.length; i++) {
+                    if (comeco < input[i].ing && fim >= input[i].ing) {
+                        indices_tarefas_ingressaram.push(i)
+                    }
+                }
+                //Ordenando as tarefas por ordem de ingresso
+                indices_tarefas_ingressaram.sort((a, b) => input[a].ing - input[b].ing) //Ordenando não os índices, mas sim os valors dos ingressos
+                list.unshift(...indices_tarefas_ingressaram)
+                console.log(list)
+
+                if (list.length === 0) {
+                    break
+                }
+
+            }
+            const qtd_tarefas = input.length
+            const tempo_vida_medio = (total_tempo_vida /qtd_tarefas)
+            const tempo_espera_medio = (total_tempo_espera /qtd_tarefas)
+            
+            if (troca) {
+                // adiciona a troca de contexto como uma tarefa -1 que executa entre todas as tarefas
+                for (let i = output.length - 1; i > 0; i--) {
+                    // splice aqui está sendo usado para inserir o item no índice i
+                    output.splice(i, 0, { tarefa: -1, tempo: troca });
+                }
+            }
+            console.log(output)
+            mostrar_RR(output, qtd_tarefas, tempo_vida_medio, tempo_espera_medio)
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr> <!-- linha inteira-->
+                <th> <!-- uma célula do cabeçalho do input-->
+                    Ingresso |
+                </th>
+                <th>
+                    Duração |
+                </th>
+                <th>
+                    botões
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tarefas">
+            <tr>
+                <td> <!-- td ou th podemos colocarmos ambos no mesmo lugar a única diferença é a estilização do th-->
+                    <input value="5" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <input value="30" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <button onclick="apagar_linha(this)">
+                        -
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input value="15" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <input value="10" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <button onclick="apagar_linha(this)">
+                        -
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input value="10" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <input value="40" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <button onclick="apagar_linha(this)">
+                        -
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input value="0" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <input value="20" type="number"> <!-- th é uma célula e o td também -->
+                </td>
+                <td>
+                    <button onclick="apagar_linha(this)">
+                        -
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <button onclick="criar_linha()">
+                        <!-- estamos chamando a função usando o onclick. Dentro do onclick usamos js normal, qualquer comando-->
+                        Adicionar tarefa
+
+                    </button>
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <button onclick="mostrar_resultado_RR()">
+        executar
+    </button>
+    <br><label for="quantum">quantum</label><br><input id ="quantum" type="number" value="15" placeholder="quantum">  <!-- atributos sempre são strings, ou seja, sempre vêm dentro de aspas sem exceções-->
+    <br><label for="troca">troca de contexto</label><br><input id ="troca" type="number" value="4" placeholder="troca de contexto">  <!-- atributos sempre são strings, ou seja, sempre vêm dentro de aspas sem exceções-->
+    <div id="output"> 
+        <br>
+        <!--<table class="res">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    t1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    t2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    t3
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    -->
+    </div>
+</body>
+
+</html>
