@@ -1,0 +1,19 @@
+caso de uso os elementos: ator e o próprio caso de uso
+diagrama de sequencia e a explacao do diagrama do caso de uso. Não temos detalhes que nos explica melhor o caso de uso ... troca de mensagens também é com o diagrama de sequencia que vai ter os atributos, a explanação, como por exemplo: realizar vednda. o atendente lanã no sistema essa ... entrando no sitema: setas contńuas apontando para o sistema. j[a as respotas do sistemas é uma seta pontilhada do sitema para o ator/objetos, elementos de atributos, métodos. ator: outro sistema, api, impressora. a linhas verticais representam a timelinne(tempo de vida do ator, do sistema etx).
+    6 elementos de represetanção: ator(boneco de palito), sistema(retangulo maior), setas contínuas apontando para o sistema(requisição ao sistema), setas pontilhadas do sistema para o ator(representando a resposta do sistema para o ator.), retângulo grande(que representa um laço de repetição), setas continuas verticais (represennta a timeline). assim, temos o sistemas os atores, as classes, os métodos e atributos são as variáveis do sistema, objetos.
+      
+    seta de volta pontilhada vai nos informar 
+    o retângulo representa um loop: for, while.
+    setas representam as informações do sistema
+todo sistema tem essa parte documental da modelagem de sistemas 
+
+mostra como as classes conversas uma com as outraas
+
+i, evemtp dp sistema é um evento de entrada externa gerado por um ator.
+
+uma operação do sistema: 
+
+
+Registrando operações do sistema:
+
+Temos que nos preocupar com os nomes, pois 
