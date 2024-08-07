@@ -1,0 +1,104 @@
+os vetores em c são ponteiros para endereços de memória.
+
+aritmética de ponteiros: podemos somar inteiros ao vetor e ele chavear
+
+o arrei não carrega consigo uma propriedade para descobrir o seu tamanho, pois eles não são objetos.
+
+
+simulando um vetor como em outras linguagens:
+	struct vetor{
+	     int tam;
+	     int *valores
+	}
+ou
+	type def struct{
+	
+	}
+
+
+o array não é um array é vetor que aponta para o local de memória que vai armazenar os dados e ele geralmente vem acompanhado do seu tamanho.
+
+sempre que falamos de referência estamos nos refirindo a endereço.
+
+Alocação Dinâmica cheira a vetores.
+Ex: void * malloc(int num_bytes);
+    void free(void * p);
+
+quando a variável não é de referência, e sim de valor, ele retorna um valor. Já quando ela é de referência, ela retorna o endereço.
+
+tipo de dado char: ele é inteiro, mas é do tipo char.
+
+quando damos:
+char c = 'a';
+printf("%d %c\n", c, c) >>> %d %c : espaço para inteiro, espaço para caractere e passando a variável que vai receber(que é o c).
+
+como as string são um array de caracteres:
+char s2[] = "Rio de Janeiro" >> "" >> açúcar sintático
+assim para copiar uma string para outra string temos que fazer um for e passando cada um. também podemos .
+
+o scanf recebe um padrão e uma referência para uma variável (& antes da variável que queremos atribuir). 
+Exemplo:
+	char a;
+	scanf("%c", &a)
+
+o ponteiro já é um endereço, assim, se fizermos:
+	 (cache) malloc(1)
+	 char *a;
+	 scanf("%c", a) >> observamos que não precisamos passar o endereço &a,, pois passamos o vetor a que já é um endereço.
+
+	outro exemplo:
+	char ccidade[81];
+	scanf("%s", cidade);
+
+
+for: 
+
+for (i = 0; orig[i] != '\0'; i++) >>> for de 3 expreões que não para enquanto o valor não for igual ao de fechamento de string. 
+	dest[i] = origin[j];
+
+Em qualquer linguagem se quisermos concatenar usamos apenas o "+", já em C mais complicado.
+
+
+overload de operador:
+casando duas pessoas em python:
+	typedef struct{
+		char * nome
+		float Patrimonio;
+}pessoa;
+	pessoa A; >> pessoa do tipo A
+	pessoa B; >> pessoa do tipo B
+	c = A + B;
+
+	def __Add__(self, B):
+		c = pessoa()
+		c.nome = self.nome[-1] + ' ' + B.nome[-1]
+		c.patrimonio = self.patrimonio + B.patrimonio
+		return c;
+
+
+Ponteiro de ponteiros:
+Guarda endereços de variáveis que estão guardando endereços de outras variáveis.
+
+função construtura como se fosse um construtor em linguagem orientadas a objeto.
+
+
+em Go lembra esses coisas de C.
+
+
+vetor de vetor 
+
+
+int* v : isso diz que é um vetor do tipo ponteiro... aluno ** >> vetor de ponteiro.
+
+a gente dá free sempre em ponteiro, até porque ele chegou lá via malloc.
+
+Quando colocamos e retirmos uma dado da memória, colocamos e tiramos não liberamos a memória, assim ,uma hora vai dar problema.
+
+fazer exemplo 2 de aluno no slide de estruturas que ele resume tudo.
+
+	quando formos estudar as estruturas: filas, pilhas não vamos usar vetor(pois vetor tem perfomance baixa para manejar grandes estruturas de dados, pois não precisamos deslocar todo mundo de posição para trocar alguém lugar. assim podemos usar uma cadeia que simule uma array que tem como pontos positivos remoção, adição, agora, como ponto negativo tem a indexação de saber a posição de um elemento por exemplo, pois precisamos percorrer todo mundo pra saber onde está um elemento.), mas ponteiros que se valem de nós:
+	struct{
+	  char nome[81]
+	  pesssoa * prox; 
+}pessoa
+(observe que ela tem um nó que aponta pra ela mesma.)

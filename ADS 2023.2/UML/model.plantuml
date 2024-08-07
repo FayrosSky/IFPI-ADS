@@ -1,0 +1,19 @@
+@startuml Model
+
+class A {
+    nome
+}
+class B {
+    id
+}
+
+
+
+
+
+
+A *-- B
+@enduml
+
+
+

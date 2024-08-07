@@ -1,0 +1,26 @@
+@startuml codificacao
+
+class_espelho{
+     + TipoVidro(): String
+     + Altura(): Double
+}
+
+class moradia{
+     +
+}
+
+class casa{
+
+}
+
+class parede{
+
+}
+
+class telhado{
+
+}
+
+class moradia{
+
+}

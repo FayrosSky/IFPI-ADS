@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Duração do Jogo</title>
+</head>
+<body>
+    <form id="gameForm">
+        <label for="horaInicio">Digite a hora de início (hh:mm):</label>
+        <input type="time" id="horaInicio" required>
+        <br>
+
+        <label for="horaFim">Digite a hora de fim (hh:mm):</label>
+        <input type="time" id="horaFim" required>
+        <br>
+
+        <button type="button" onclick="calcularDuracaoDoJogo()">Calcular Duração do Jogo</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularDuracaoDoJogo() {
+            const horaInicio = document.getElementById("horaInicio").value;
+            const horaFim = document.getElementById("horaFim").value;
+
+            const [horaInicioParte1, horaInicioParte2] = horaInicio.split(":");
+            const [horaFimParte1, horaFimParte2] = horaFim.split(":");
+
+            const inicioEmMinutos = parseInt(horaInicioParte1) * 60 + parseInt(horaInicioParte2);
+            const fimEmMinutos = parseInt(horaFimParte1) * 60 + parseInt(horaFimParte2);
+
+            let duracaoEmMinutos;
+
+            if (fimEmMinutos >= inicioEmMinutos) {
+                duracaoEmMinutos = fimEmMinutos - inicioEmMinutos;
+            } else {
+                duracaoEmMinutos = (24 * 60 - inicioEmMinutos) + fimEmMinutos;
+            }
+
+            const duracaoHoras = Math.floor(duracaoEmMinutos / 60);
+            const duracaoMinutos = duracaoEmMinutos % 60;
+
+            document.getElementById("resultado").textContent = `A duração do jogo é de ${duracaoHoras} horas e ${duracaoMinutos} minutos.`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontre o Maior Número</title>
+</head>
+<body>
+    <form id="numberForm">
+        <label for="num1">Enter a first number:</label>
+        <input type="number" id="num1" required><br>
+
+        <label for="num2">Enter a second number:</label>
+        <input type="number" id="num2" required><br>
+
+        <label for="num3">Enter a third number:</label>
+        <input type="number" id="num3" required><br>
+
+        <button type="button" onclick="findGreatestNumber()">Find greatest number</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function findGreatestNumber() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const num3 = parseFloat(document.getElementById("num3").value);
+
+            let maior;
+
+            if (num1 >= num2 && num1 >= num3) {
+                maior = num1;
+            } else if (num2 >= num1 && num2 >= num3) {
+                maior = num2;
+            } else {
+                maior = num3;
+            }
+
+            document.getElementById("resultado").textContent = `The greatest number is: ${maior}`;
+        }
+    </script>
+</body>
+</html>

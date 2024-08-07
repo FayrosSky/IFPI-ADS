@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        body {
+            font-family: Ariel, sans-serif;
+            background-color: aqua;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display:block;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display:block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 5px;
+            width: 200px;
+        }
+
+        button {
+            background-color: #007bff;
+            text-align: center;      
+        }
+
+        #resultado {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input {
+            padding: 5px;
+            width: 200px
+        }
+        .vermelho {
+            background: url(rocklee.jpeg);
+        }
+
+        
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("rocklee").addEventListener("click", calcularComparacao);
+        })
+        function calcularComparacao(){
+            document.getElementById("cdbAmount").classList.add("vermelho");
+            const valorCDB = parseFloat(document.getElementById("cdbAmount").value);
+            const taxaCDB = parseFloat(document.getElementById("cdbInterestRate").value);
+            const valorEmprestimo = parseFloat(document.getElementById("loanAmount").value);
+            const taxaEmprestimo = parseFloat(document.getElementById("loanInterestRate").value);
+
+            const rendimentoCDB = valorCDB * (taxaCDB / 100);
+            const custoEmprestimo = valorEmprestimo * (taxaEmprestimo / 100);
+
+            let resultado = "";
+
+            if(rendimentoCDB > custoEmprestimo){
+                resultado = "È mais vantajoso investir no CDB"
+            } else if (custoEmprestimo > rendimentoCDB){
+                resultado = "È mais vantajoso pegar o empréstimo."
+            } else {
+                resultado = "Tanto o CDB quanto o empréstimo têm o mesmo rendimento/custo.";
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+
+            console.log(`${resultado}`)
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Comparação CDB vs Empréstimo</h1>
+
+    <form id="calculator-form">
+        <label for="cdbAmount">Valor do CDB (R$):</label>
+        <input type="number" id="cdbAmount" required><br><br>
+
+        <label for="cdbInterestRate">Taxa de Juros do CDB (% a.a.):</label>
+        <input type="number" id="cdbInterestRate" required><br><br>
+
+        <label for="loanAmount">Valor do Empréstimo (R$):</label>
+        <input type="number" id="loanAmount" required><br><br>
+
+        <label for="loanInterestRate">Taxa de Juros do empréstimo (%a.a.):</label>
+        <input type="number" id="loanInterestRate" required><br><br>
+
+        <button type="button" id="calculateButton" onclick="">Calcular</button>
+
+
+    </form>    
+
+    <div id="resultado">
+
+    </div>
+    <img src="banco.png" alt="Banco" id="rocklee">
+    
+
+
+</body>
+</html>

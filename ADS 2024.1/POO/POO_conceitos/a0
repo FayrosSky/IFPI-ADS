@@ -1,0 +1,135 @@
+
+Programação Orientada a Objetos:
+
+Objetos: Coisa material ou abstrata (Ou uma instância de uma classe)que pode ser percebida pelos sentidos e descrita
+por meio das suas características, comportamentos e estado atual.que
+
+QUESTÕES(BÁSICAS):
+Q - 1: O que é um objeto em POO?
+    R: Coisa material ou abstrata (Ou uma instância de uma classe) que pode ser percebida pelo sentidos e descrita por meio das suas características, comportamentos e estado autal.
+
+Q - 2: O que é uma classe em programação orientada a objetos?
+    R: É um modelo ou um molde que define as propriedades e métodos comuns a todos os objetos daquela classe. As classes servem como um plano para criar objetos.
+
+Q - 3: Explique o conceito de encapsulamento e sua importância na POO?
+    R: O encapsulamento é o princípio de esconder os detalhes internos de uma objeto e expor apenas a interface necessária para interagir com ele. Isso ajuda a manter a integridade dos dados e a momdularidade do código.
+
+Q - 4: Defina o conceito de herança e como ele é utilizado na POO.
+    R: A herança permite que uma classe(subclasse) herde propriedades e métodos de outra classe(superclasse). Isso promove a reutilização de código e a criação de hierarquias de classes.
+
+Q - 5: O que é polimorfismo e como ele se aplica em POO?
+    R: O polimorfismo permite que objetos de deiferentes classes sejam tratados de maneira uniforme. Isso significa que um método pode ter diferentes implementações em diferentes classes, mas pode ser chamado da mesma maneira.
+
+
+QUESTÕES DE MODELAGEM DE OBJETOS:
+Q - 6: Você foi solicitado a modelar um sistema de gerenciamento de uma bibliotea. Quais seriam as principais classes e objetos envolvidos?
+    R: Algumas das principais classes e objetos seriam: Livro(título, autor, editora, ISBN), Usuário(nome, endereço, telefone), Empréstimo(livro, usuário, data de empréstimo, data de devolução), Categoria(nome, descrição).
+
+Q - 7: Descreve como você modelaria uma classe "Carro" com suas propriedades e métodos.
+    R: Uma classe "Carro" poderia ter propriedades como marca, modelo, cor, ano, velocidade máxima e métodos como acelerar, frear, ligar o motor, obter informações.
+
+Q - 8: Imagine que você precisa modelar uma classe "Pessoa" que possui informações como nome, idade, endereço e telefone. Como você estruturaria essa classe?
+    R: Uma classe "Pessoa" poderia ter propriedades como nome, idade, endereço(rua, número, cidade, estado, CEP), telefone e métodos como andar, falar, comer.
+
+Q - 9: Você precisa criar um sistema de gerenciamento de estoque para uma loja de roupas. Quais seriam as principais classes e objetos envolvidos nesse sistema?
+    R: Algumas classes em um sistema de gerenciamento de estoque para uma loja de roupas seriam: Produto(nome, descrição, tamanho, cor, preço), Categoria(nome, descrição), Estoque(produto, quantidade), Pedido(cliente, produtos, data).
+
+
+Q - 10: Explique como você implementaria o conceito de herança para criar uma hierarquia de classes relacionadas a formas geométricas (círcuilo, quadrado, retângulo, etc.).
+    R: Vc poderia criar uma classe abstrata "FormaGeométrica" com propriedades como tipo, cor, tamanho e métodos como calcularArea() e calcularPerimetro(). Então, criar subclasses concretas como Círculo, Quadrado e Retangulo que herdam da classe abstrata e implementam os métodos específicos para cada forma.
+
+APLICAÇÂO PRÁTICA:
+Q - 11: Qual a diferença entre uma classe abstrata e uma interface em POO? Dê um exemplo de uso de cada uma.
+    R: Uma classe abstrata é uma classe que não pode ser instanciada diretamente e serve como base para outras classes. Uma interface é um contrato que define um conjunto de métodos que uma classe deve implementar. Exemplo de classe abstrata: FormaGeometrica. Exemplo de interface: Imprimivel(métodos: imprimir(), obterPreview().
+
+Q - 12: Descreva um cenário em que o uso do polimorfismo seria benéfico na sua aplicação.
+    R: Imagina um sistema de pagamento que aceita diferentes tipos de cartão(crédito, débito, pré-pago). Vc poderia usar polimorfismo para tratar todos os tipos de cartão da mesma maneira, chamando um método "processar()" em cada objeto de cartão, mesmo que a implementação interna seja diferente para cada tipo.
+
+Q - 13: Explique como o encapsulamento ajuda a manter a integridade dos dados em um sistema orientado a objetos.
+    R: O encapsulamento ajuda a manter a integridade dos dados em um sistema orientado a objetos, pois permite esconder os detalhes internos de um objeto e expor apenas a interface necessária. Isso evita que os dados sejam acessados ou modificados diretamente fora do objeto, mantendo a consistência e a segurança dos dados.
+
+Q - 14: Você precisa criar um sistema de gerencimento de alunos em uma escola. Quais princípios de POO você aplicaria nesse sistema?
+    R: Alguns princípios da POO que você aplicaria em um sistema de gerenciamento de alunos seriam: Criar classes como Aluno(nome, idade, série, notas), Professor(nome, disciplinas), Turma(série, alunos, professor), Escola(nome, endereço, turmas). Usar encapsulamento para proteger os dados dos alunos, herança para criar subclasses específicas de alunos(bolsista, intercambista) e polimorfismo para tratar diferentes tipos de alunos de maneira uniforme.
+
+Q - 15: Discuta a importância da abstração na modelagem de problemas complexos usando a programação orientada a objetos.
+    R: A abstração é importante na modelagem de problemas complexos usando POO porque permite focar apenas nos aspectos essenciais de um objeto, escondendo os detalhes irrelevantes. Isso ajuda a simplificar a complexidade e a criar modelos mais gerenciáveis. Por exemplo, em um sistema de gerenciamento de voos, origem, destino, data e métodos como reservar, cancelar, atrasar. Isso permite modelar o sistema de maneira mais clara e modular, mesmo com muitos detalhes envolvidos.
+
+
+No exemplo da caneta o molde da caneta é a Classe e a Caneta em si é o Objeto.
+E para os conceitos de POO, uma classe, ela tem sempre que responder a 3 perguntas(considerando esse molde): 1°: Que coisas eu tenho? 
+2°: Que coisas eu faço?
+3°: Como eu estou agora?
+
+Voltando ao exemplo da canta:
+coisas que ela tem(Em POO: atributos): Modelo, cor, ponta, carga, tampada/destampada
+
+Coisas que faz(Métodos): 
+Escrever, rabiscar, pintar, tampar, destampar
+
+Como está agora(Estado):
+
+Obs: TODO OBJETO VEM A PARTIR DE UMA CLASSE(A PARTIR DE UM MOLDE. PENSA NO MOLDE QUE FOI UTILIZADO PARA GERAR ESSE OBJETO).
+
+Para produzirmos uma caneta, primeiro temos que fazer um molde para essa caneta.A fábrica que fez determinada caneta com certeza fez vários protótipos de como ela se comportaria, de como ficaria na mão, tamanho ideal, peso ideal. Isso tudo são características do objeto que antes de fazermos esse objeto, temos que planejar esse objeto antes. Esse planejamento ou classificação é o que é chamado de CLASSE.
+
+Criando uma classe Caneta em forma de algoritmo:
+	Classe Caneta
+	{1°: atributos}
+	{2°: Métodos}
+	{3°: Estado}
+	FimClasse
+
+	Classe Caneta
+	modelo: Caractere
+	cor: Caractere
+	ponta: Real
+	carga: inteiro
+	tampa: logico
+	Metodo rabiscar()
+	   Se (tampada) entao
+		escreva("Erro")
+	   senao
+	      Escreva("rabisco")
+	   Fimse
+	FimMetodo
+	Metodo tampar()
+	  tampada = verdadeiro
+	FimMetodo
+	FimClasse
+
+E quando temos uma classe e queremos transformar ela em um objeto damos um nome a isso: instaciar uma classe
+instaciar é quando pegamos uma classe e conseguimos gerar um objeto a partir dela. Obs: Não transformamos uma classe em um objeto, geramos um objeto a partir de uma classe. Assim, quando dizemos para criar um objeto, estamos instanciando uma classe em forma de objeto.
+
+para instanciar um objeto é simples: nome_do_objeto = nova caneta 
+A partir de agora temos um objeto chamado c1 que é uma nova caneta. A palavra nova serve para podermos instanciar um objeto a partir de uma classe. O que vem depois do nova é a classe que vamos utilizar, já o que vem antes do nova é o nome do objeto que vai existir. Se queremos colocar um cor a esse objeto,
+fazemos: c1.cor = "Azul" (o . indica que o atributo cor do objeto c1 recebe Azul)
+	 c1.ponta = 0.5
+	 c1.tampada = falso (nossa caneta tá destampada)
+	 c1.rabiscar() (já que a nossa caneta está destampada, podemos rabiscar... chamando o método rabiscar() ... sem parênteses é atributo, com parêntesees é método.):w
+
+ex:
+	c1 = nova Caneta
+	c1.cor = "Azul"
+	c1.ponta = 0.5
+	c1.tampada = falso
+	c1.rabiscar()
+
+	c2 = nova Caneta
+	c2.cor = "Vermelho
+
+
+
+
+
+
+as coisas mais simples do mundo podem ser 
+
+
+
+Abstração: Se nós somos objetos da classe PESSOA, nós temos os mesmos atributos, mas temos estados diferentes. Eu tenho um estado e outra pesso tem outro estado.E como somos seres humanos, a quantidade de atributos que temos é muito grande.Por exemplo, eu tenho cor da pele, altura, idade, peso, endereço, cor dos olhos,nome_da_mae. Tudo isso são atributos de uma pessoa. Mas se por acaso queremos fazer um cadastro de um aluno, importar sabermos o peso ou cor ou cor dos olhos de um aluno em uma escola? Não!! Mas se, por exemplo, formos fazer o cadastro de um modelo, agora, sim, importa. Abstração é o seguinte: tornar algo muito complexo, tem muitos atributos,
+a abstração é ignorar todos os outros atributos e nos concentrarmos nos essenciais.Esse é um conceito primordial da programação orientada a objetos.Tanto que muitos autores consideram esse o primeiro pilar da programação orientada a objetos.
+
+Atividade: Identifique dois objetos físicos do seu ambiente e dois objetos abstratos(aula, não é um objeto concreto, mas sim um objeto abstrato, mas ela tem atributos como o tempo de duração, qual a disciplina que vamos ministrar, quanto tempo vamos falar, quantos exercícios vamos fazer. coisas que podemos fazer com a aula: começar, terminar, cancelar, podemos exercitar a aula. Qual o estado dessa aula: ela está acontecendo nesse exato momento. Assim, tudo isso que pode ser classificado através de comportamentos, características e estados são objetos.) e classifique-os(criar a classe que deu origem a esse objeto. Por exemplo: cadeira tem características e métodos(coisas que ela tem e coisas que ela faz.)e também tem estados. Por exemplo, a cadeira tem braço(uma característica) e esse braço tá do lado esquerdo ou do lado direito? Isso são características. E o que podemos fazer com a cadeira?? Podemos empilhar ela, sentar nela, colocar ela de cabeça pra baixo. E qual o estado atual dela? Ela tá normal de cabeça pra cima, não tem nenhuma cadeira empilhada nela e ela tá toda rabiscada.).
+
+
+

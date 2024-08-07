@@ -1,0 +1,10 @@
+fazer um docker e jogar em um servidor web
+
+dotnet6.0 sdk
+
+não vamos precisar criar as tabelas, pois temos o model(que é o modelo ), vai funcionar que nem JPA(um framework do java ) do JAVA  
+ vamos implementar as classes  e com os diagramas de classe: 
+public class aluno 
+
+arquitetura clean
+reason page

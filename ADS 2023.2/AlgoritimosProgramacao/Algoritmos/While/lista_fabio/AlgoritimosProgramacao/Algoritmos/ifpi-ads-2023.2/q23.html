@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Datas</title>
+</head>
+<body>
+    <h1>Comparar Datas</h1>
+    <label for="data1">Digite a primeira data (DD/MM/AAAA): </label>
+    <input type="text" id="data1"><br><br>
+    
+    <label for="data2">Digite a segunda data (DD/MM/AAAA): </label>
+    <input type="text" id="data2"><br><br>
+
+    <button onclick="compararDatas()">Comparar Datas</button><br><br>
+
+    <p>A data mais recente é: <span id="resultado"></span></p>
+
+    <script>
+        function compararDatas() {
+            var data1 = document.getElementById("data1").value;
+            var data2 = document.getElementById("data2").value;
+            var resultado = document.getElementById("resultado");
+
+            var partesData1 = data1.split("/");
+            var partesData2 = data2.split("/");
+
+            var dia1 = parseInt(partesData1[0]);
+            var mes1 = parseInt(partesData1[1]);
+            var ano1 = parseInt(partesData1[2]);
+
+            var dia2 = parseInt(partesData2[0]);
+            var mes2 = parseInt(partesData2[1]);
+            var ano2 = parseInt(partesData2[2]);
+
+            if (ano1 > ano2) {
+                resultado.textContent = data1;
+            } else if (ano1 < ano2) {
+                resultado.textContent = data2;
+            } else {
+                if (mes1 > mes2) {
+                    resultado.textContent = data1;
+                } else if (mes1 < mes2) {
+                    resultado.textContent = data2;
+                } else {
+                    if (dia1 > dia2) {
+                        resultado.textContent = data1;
+                    } else if (dia1 < dia2) {
+                        resultado.textContent = data2;
+                    } else {
+                        resultado.textContent = "As datas são iguais.";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
