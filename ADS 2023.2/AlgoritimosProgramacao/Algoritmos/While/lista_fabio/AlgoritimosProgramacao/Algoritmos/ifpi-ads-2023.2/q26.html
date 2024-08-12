@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificar Hipotenusa e Catetos</title>
+</head>
+<body>
+    <h1>Identificar Hipotenusa e Catetos</h1>
+    <label for="ladoA">Digite o valor do lado A: </label>
+    <input type="number" id="ladoA"><br><br>
+    
+    <label for="ladoB">Digite o valor do lado B: </label>
+    <input type="number" id="ladoB"><br><br>
+
+    <label for="ladoC">Digite o valor do lado C: </label>
+    <input type="number" id="ladoC"><br><br>
+
+    <button onclick="identificarHipotenusaECatetos()">Identificar</button><br><br>
+
+    <p>Lado A: <span id="catetoA"></span></p>
+    <p>Lado B: <span id="catetoB"></span></p>
+    <p>Hipotenusa: <span id="hipotenusa"></span></p>
+
+    <script>
+        function identificarHipotenusaECatetos() {
+            var ladoA = parseFloat(document.getElementById("ladoA").value);
+            var ladoB = parseFloat(document.getElementById("ladoB").value);
+            var ladoC = parseFloat(document.getElementById("ladoC").value);
+            var catetoA = document.getElementById("catetoA");
+            var catetoB = document.getElementById("catetoB");
+            var hipotenusa = document.getElementById("hipotenusa");
+
+            if (ladoA > ladoB && ladoA > ladoC) {
+                hipotenusa.textContent = ladoA;
+                catetoA.textContent = ladoB;
+                catetoB.textContent = ladoC;
+            } else if (ladoB > ladoA && ladoB > ladoC) {
+                hipotenusa.textContent = ladoB;
+                catetoA.textContent = ladoA;
+                catetoB.textContent = ladoC;
+            } else {
+                hipotenusa.textContent = ladoC;
+                catetoA.textContent = ladoA;
+                catetoB.textContent = ladoB;
+            }
+        }
+    </script>
+</body>
+</html>

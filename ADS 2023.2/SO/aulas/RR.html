@@ -1,0 +1,49 @@
+daemon no linux é a mesma coisa de um serviço
+comandos linux para gerenciar processos:
+ps
+top >>> para ver os processos que estão sendo executados
+htop >>> mesma coisa do top só que melhor
+kill >>> para mata um processo, encerrar um processo... Na verdade, ele não mata um processo, ele manda um sinal... quando damos um kill no htop, ele nos dá todos os sinal e fica em cima dos mais comum que éo mais comum que mata o processo.
+pwd >>> diz qual diretório estamos... Começa pelo diretório raiz, quando damos uma cd .., ele volta 
+find >>> escaneia todas as pastas uma por uma ... assim, podemos especificar condições
+neofetch -- frescurinha
+
+Como criar um arquivo via interface
+
+ls -arlt (observer que cada letra é uma flag, podemos dar um ls --help)
+ls -l >>> para listar 
+
+se o caminho começar com barra ele é absoluto, caso não, ele é relativo: 
+por exemplo: quando damos ls /home ele caça lá na raiz, já quando damos só um ls home ele busca no diretório local. Podemos usar o finda para listar todos os arquivos da pasta atual recursivamente, pois o ls não é recursiv, ou seja, mostra tudo que tem dentro das pastas. 
+
+Se colocarmos um arquivo dentro de uma pasta, podemos reverter isso colocando ele pra pasta atual, por exemplo: mv teste/test . No mv lembrar que é sempre de um lugar para... ex: mv test provas (obs: se a pasta provas não existisse, ia trocar o nome do arquivo para provas)
+
+ifconfig
+ping (manda um pacote para um destino e espera uma resposta e como isso dá pra tirar vários diagnóstico, como, por exemplo se um computador tá funcinando ou se estar com internet)
+netstat (exibir informações da rede.... as portas que estão abertas, tudo que usa a rede)
+netstat -tupl
+ 
+
+
+
+Pesquisar sobre o ambiente gráfico X11.
+
+
+Resumo html tabela:
+tag table e dentro dela tem a thead, tbody e tfoot(todos são opcionais, podemos colocar só a thead, a tbody ou a tfoot) e dentro de cada uma dessas temos as trs que são as linhas e dentro das linhas temos as células que são as ths e as tds.
+
+
+
+SO 01/11/2023:
+Interprocessos, enterprocessos
+
+pipes manda informação de um processo a outro processo por meio de pipes.
+
+
+Cooperação:
+
+
+Condições de disputa ou condições de corrida(um dado só pode ser acessado por uma thread uma por vez, se duas thread acessar o mesmo dado ao mesmo tempo, dá merda):
+Um terminal 1 deposita 100 reiais e um terminal 2 deposita 1000 reais. Dependendo de como essas tabelas são executadas pode ter uma .. o esperado é que no final tenhamos 1100 reais. Se nós executarmos as instruções da tarefa1 todas e depois executarmos as instruções2 todas corretas, no final teremos a execução das duas tarefas.      
+
+

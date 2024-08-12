@@ -1,0 +1,77 @@
+* >> variável que guarda endereços(ponteiro), então ela é do tipo ponteiro.
+& >> endereço de
+ 
+int *p =/ *p =2 
+
+já a int *p = &a >>> é uma declaração já com uma inicialização, então, tá tudo ok!
+
+
+segmentation foution (segfaltion >> toda valor é alocado na memória mesmo sem ter sido declarado
+
+
+
+
+
+tipos abstratos de dados define como os dados serão organizados. são  eles não tem implementação 
+
+estruturas: 
+
+
+em c criar ponteiros por meio de ponteiros e não mais por meio de []
+
+	quando aprendermos tipos abstratos em C, podemos aprender tipos abstratos de dados para lista e o tipo abstrato de nó. Tipo abstrato do tipo lista que tem o 
+para criar o kit o de lista para criar lista, pilha e fila.
+
+a lista é um objeto que tem um nó que tem o próximo.
+
+
+Java tem listas e arrays(tem os dois)
+
+passagem por valor vs passagem por referencia 
+
+se é variável do tipo ponteiro, os valores que podemos entregar pra ponteiros é endereços de memória.
+
+serem atributos ou computados é com * no lado esquerdo.... quando for pra apontar para outra variável colocamos * = *
+
+parâmetros funcionam como variáveis locais.
+
+os arrays funcionam como uma cadeia de ponteiros em C.
+Conseguimos fazer aritmética de ponteiros com isso. Somar o próprio array para navegar entre o array.
+
+como passar um array para função: um vetor é sempre um ponteiro daquele tipo que ele foi declarado.
+
+char é um tipo numérico.
+
+obs: geralmente quando temos vetores ele anda acompanhado de variáveis do tamanho dele. pois não temos o length para sabermos o tamanho dele. 
+
+Na verdade vetor não existe! O que existe é um apontamento para um local que existe.
+
+
+pesquisar e diferenciar alocação estática vs alocação dinâmica
+
+declaração estatica: declara o ponteiro e já guarda a memória pra ele.
+
+alocação dinâmica: 
+malloc(aloca memória com números inteiros: quando bytes iremos querer):
+
+free(observe que por exemplo em um hardware de memória reduzida, não podemos nos dar ao luxo de te ter muita memória alocada, então temos que usar e já esvaziar automatiamente daí a importância do free.)
+
+terceira f
+sizeof
+
+cada inteiro precisa de 4 bytes.
+
+o que é alocado dinamiamente só desalocado manualmente.
+TAD(Tipo abstrato de dado) >>> serve para modularizar(ler sobre SOLID).
+
+muito comum em ser os retornos serem preenchidos por referência
+
+em ponteiros para estrutura(Variáveis do tipo ESTRUTURA):
+quando é ponteiro para passar a referência a gente usa a seta -> pra não precisar ficar colocando o *. Se essa variável não for ponteiro, para acessar é com o ponto(.)  .
+
+passagem por referência: mandamos a referência e não o valor(aprende essa porra!).
+
+definir a estruturas com strutc(estanho definir uma variável com duas palavras.)?? para isso temos o typedef:
+
+typedef: dá um apelido de tipos de dados struct ponto (apelidamos só de ponto com o typedef).
+

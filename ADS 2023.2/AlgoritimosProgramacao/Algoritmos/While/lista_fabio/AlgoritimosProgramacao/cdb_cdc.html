@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Bancário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador Bancário</h1>
+        <h2>Simulador de CDB</h2>
+        <form id="cdb-form">
+            <label for="valor-cdb">Valor do CDB (R$):</label>
+            <input type="number" id="valor-cdb" required>
+
+            <label for="taxa-cdb">Taxa de Juros do CDB (% a.a):</label>
+            <input type="number" id="taxa-cdb" required>
+
+            <label for="prazo-cdb">Prazo do CDB (anos):</label>
+            <input type="number" id="prazo-cdb" required>
+
+            <button type="button" onclick="calcularCDB()">Calcular CDB</button>
+        </form>
+
+        <div id="resultado-cdb" class="hidden">
+            <h3>Resultado do CDB</h3>
+            <p>Valor Investido: <span id="valor-investido-cdb"></span></p>
+            <p>Juros do CDB: <span id="juros-cdb"></span></p>
+            <p>Valor Total a Receber: <span id="total-receber-cdb"></span></p>
+        </div>
+
+        <h2>Simulador de CDC (Empréstimo)</h2>
+        <form id="cdc-form">
+            <label for="valor-cdc">Valor do Empréstimo (R$):</label>
+            <input type="number" id="valor-cdc" required>
+
+            <label for="taxa-cdc">Taxa de Juros do CDC (% a.m):</label>
+            <input type="number" id="taxa-cdc" required>
+
+            <label for="prazo-cdc">Prazo do CDC (meses):</label>
+            <input type="number" id="prazo-cdc" required>
+
+            <button type="button" onclick="calcularCDC()">Calcular CDC</button>
+        </form>
+
+        <div id="resultado-cdc" class="hidden">
+            <h3>Resultado do CDC</h3>
+            <p>Valor Total do Empréstimo: <span id="valor-total-cdc"></span></p>
+            <p>Juros do CDC: <span id="juros-cdc"></span></p>
+            <p>Valor das Parcelas: <span id="parcelas-cdc"></span></p>
+            <p>Montante Total a Pagar: <span id="total-pagar-cdc"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calcularCDB() {
+            const valorCDBInput = document.getElementById('valor-cdb');
+            const taxaCDBInput = document.getElementById('taxa-cdb');
+            const prazoCDBInput = document.getElementById('prazo-cdb');
+            const resultadoCDB = document.getElementById('resultado-cdb');
+
+            const valorCDB = parseFloat(valorCDBInput.value);
+            const taxaCDB = parseFloat(taxaCDBInput.value) / 100; // Converter para decimal
+            const prazoCDB = parseFloat(prazoCDBInput.value);
+
+            const valorInvestidoCDB = valorCDB;
+            const jurosCDB = calcularJurosCompostos(valorCDB, taxaCDB, prazoCDB);
+            const totalReceberCDB = valorInvestidoCDB + jurosCDB;
+
+            document.getElementById('valor-investido-cdb').textContent = `R$ ${valorInvestidoCDB.toFixed(2)}`;
+            document.getElementById('juros-cdb').textContent = `R$ ${jurosCDB.toFixed(2)}`;
+            document.getElementById('total-receber-cdb').textContent = `R$ ${totalReceberCDB.toFixed(2)}`;
+
+            resultadoCDB.style.display = 'block';
+        }
+
+        function calcularCDC() {
+            const valorCDCInput = document.getElementById('valor-cdc');
+            const taxaCDCInput = document.getElementById('taxa-cdc');
+            const prazoCDCInput = document.getElementById('prazo-cdc');
+            const resultadoCDC = document.getElementById('resultado-cdc');
+
+            const valorCDC = parseFloat(valorCDCInput.value);
+            const taxaCDC = parseFloat(taxaCDCInput.value) / 100; // Converter para decimal
+            const prazoCDC = parseFloat(prazoCDCInput.value);
+
+            const valorTotalCDC = valorCDC;
+            const jurosCDC = calcularJurosCompostos(valorCDC, taxaCDC, prazoCDC);
+            const parcelasCDC = valorTotalCDC / prazoCDC;
+            const totalPagarCDC = valorTotalCDC + jurosCDC;
+
+            document.getElementById('valor-total-cdc').textContent = `R$ ${valorTotalCDC.toFixed(2)}`;
+            document.getElementById('juros-cdc').textContent = `R$ ${jurosCDC.toFixed(2)}`;
+            document.getElementById('parcelas-cdc').textContent = `R$ ${parcelasCDC.toFixed(2)}`;
+            document.getElementById('total-pagar-cdc').textContent = `R$ ${totalPagarCDC.toFixed(2)}`;
+
+            resultadoCDC.style.display = 'block';
+        }
+
+        function calcularJurosCompostos(valorPrincipal, taxa, periodo) {
+            return valorPrincipal * (Math.pow(1 + taxa, periodo) - 1);
+        }
+    </script>
+</body>
+</html>

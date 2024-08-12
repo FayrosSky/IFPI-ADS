@@ -1,0 +1,3 @@
+Se temos uma expressão booeleana e ela retorna true quando a a expressãoa é verdadeira e false quando ela retorna false, então podemos retornar a própria expressão booeleana para evitar redundância... Uma função booleana é uma exprssão booleana.   
+
+Observe que observar se uma palavra está ordenada utilizamos string e tabela ascii... Já para ordenar, usamos algoritmo de ordenação(Bubble, quick)

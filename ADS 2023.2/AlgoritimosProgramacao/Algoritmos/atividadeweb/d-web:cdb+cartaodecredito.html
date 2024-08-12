@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariana</title>
+</head>
+<body>
+    <input type="submit" value="calcular" onclick="clique_botao_calcular()">
+    <div class="di"></div>
+    <script>
+        function clique_botao_calcular(){
+    // Input
+        let res = document.getElementsByClassName('di')
+
+    // CDB data
+    const invested_amount = document.getElementById('invested_amount');
+    const cdb_rate = document.getElementById('cdb_rate');
+    const expiry_year = document.getElementById('expiry_year');
+    
+    const invested_amount = Number(invested_amount.value)
+    const cdb_rate = Number(cdb_rate.value)
+    const expiry_year = Number(expiry_year.value)
+
+    // Processing
+    // Investment time calculation
+    const time_year = investment_time_calculation(expiry_year);
+
+    // CDB calculation (using corrected compound_interest function)
+    const cdb_yield = calculate_CDB_interest(invested_amount, cdb_rate, time_year);
+
+    // Amount including principal and yield
+    const total_withdraw = invested_amount + cdb_yield;
+
+    // Percentage yield calculation
+    const percentage_yield = (cdb_yield / invested_amount) * 100;
+
+    // Output
+    console.log(`>> Invested value: R$ ${invested_amount.toFixed(2)}`);
+    console.log(`>> Yield: R$ ${cdb_yield.toFixed(2)}`);
+    console.log(`>> Total to withdraw: R$ ${total_withdraw.toFixed(2)}`);
+    console.log(`>> Percentage yield (%): ${percentage_yield.toFixed(2)}%`);
+    console.log(" ");
+    
+
+    function investment_time_calculation(year) {
+    const time = year - 2023;
+    return time;
+    }
+
+    function calculate_CDB_interest(invested_amount, cdb_rate, time_year) {
+    return compound_interest(invested_amount, cdb_rate, time_year);
+    }
+
+    function calculate_CDC_interest(bank_loan_value, bank_interest_rate, time_month){
+    return compound_interest(bank_loan_value, bank_interest_rate, time_month)
+    }
+
+    function compound_interest(c, i, t) {
+    const amount = c * (1 + (i / 100)) ** t;
+    const interest = amount - c;
+    return interest;
+    }
+
+    }
+    </script>
+</body>
+</html>

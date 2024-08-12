@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Salários de Professores</title>
+</head>
+<body>
+    <form id="teacherForm">
+        <label for="horasAula1">Digite a quantidade de horas-aula do primeiro professor:</label>
+        <input type="number" id="horasAula1" required>
+        <br>
+
+        <label for="valorHora1">Digite o valor por hora do primeiro professor:</label>
+        <input type="number" id="valorHora1" required>
+        <br>
+
+        <label for="horasAula2">Digite a quantidade de horas-aula do segundo professor:</label>
+        <input type="number" id="horasAula2" required>
+        <br>
+
+        <label for="valorHora2">Digite o valor por hora do segundo professor:</label>
+        <input type="number" id="valorHora2" required>
+        <br>
+
+        <button type="button" onclick="compararSalarios()">Comparar Salários</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function compararSalarios() {
+            const horasAula1 = parseFloat(document.getElementById("horasAula1").value);
+            const valorHora1 = parseFloat(document.getElementById("valorHora1").value);
+            const horasAula2 = parseFloat(document.getElementById("horasAula2").value);
+            const valorHora2 = parseFloat(document.getElementById("valorHora2").value);
+
+            const salarioTotal1 = horasAula1 * valorHora1;
+            const salarioTotal2 = horasAula2 * valorHora2;
+
+            let resultado = "";
+
+            if (salarioTotal1 > salarioTotal2) {
+                resultado = `O primeiro professor tem um salário total maior: R$${salarioTotal1.toFixed(2)}.`;
+            } else if (salarioTotal2 > salarioTotal1) {
+                resultado = `O segundo professor tem um salário total maior: R$${salarioTotal2.toFixed(2)}.`;
+            } else {
+                resultado = "Ambos os professores têm o mesmo salário total.";
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>

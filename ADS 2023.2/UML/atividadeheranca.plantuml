@@ -1,0 +1,75 @@
+@startuml atividade_herança
+    class biblioteca{
+
+
+    }
+
+    class empresa{
+        - nome: String
+
+    }
+
+    class funcionario{
+        - nome: String
+        + empréstimo:
+    }
+
+    class publicacao{
+        - ID
+        - Título
+        - Autor 
+        - ISBN
+        - Dispobilidade     
+    }
+
+    class livro{
+        - ID
+    }
+
+    class revista{
+        - ID
+    }
+
+    class jornal{
+        - ID
+    }
+
+    class emprestimo{
+        - ID
+        - Data Empréstimo
+        - Data Devolução
+        - Status
+    }
+
+    class reserva{
+        - ID
+        - Data reserva
+        - Status
+        + VerificarReservas():
+    }
+
+    class usuario{
+        - ID
+        + ExcluirReserva():
+    }
+
+    empresa "1" -- "1" biblioteca
+    funcionario "1..*" -- "1" empresa
+
+    livro --|> publicacao
+    revista --|> publicacao
+    jornal --|> publicacao
+
+    emprestimo --* publicacao
+    reserva --* publicacao
+
+    usuario "1..*"-- "1" biblioteca
+    reserva --* funcionario
+    emprestimo --* funcionario
+
+    Biblioteca "1" --* "0..*" Exemplar : possui
+    Exemplar -- Biblioteca: está em
+    
+
+
+@enduml

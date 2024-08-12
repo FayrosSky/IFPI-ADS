@@ -1,0 +1,41 @@
+@startuml
+
+class pessoa{
+    - fazProva(): void
+    - nome: string
+    - matricula: int
+}
+
+class aluno{
+    - data_nascimento: Date
+    + fazProva(): void
+}
+
+class disciplina{
+    - nome: string
+    - cargaHoraria: int
+}
+
+class professor{
+    - nome: string
+    - formacao: string
+    - matrícula: int
+    + elaboraProva(): void
+
+}
+
+class turma{
+    - sigla: string
+    - ano: int
+    + AdicionarAluno(): void
+}
+
+aluno "1, *" -- "1" turma
+professor "1, *" -- "1, *" disciplina
+turma "1" -- "1, *" disciplina
+professor "1, *"-- "1, *" turma  
+
+aluno --|> pessoa
+professor --|> pessoa
+
+@enduml

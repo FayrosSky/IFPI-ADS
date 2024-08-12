@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Triângulo</title>
+</head>
+<body>
+    <form id="angleForm">
+        <label for="angle1">Digite o primeiro ângulo:</label>
+        <input type="number" id="angle1" required>
+        <br>
+
+        <label for="angle2">Digite o segundo ângulo:</label>
+        <input type="number" id="angle2" required>
+        <br>
+
+        <label for="angle3">Digite o terceiro ângulo:</label>
+        <input type="number" id="angle3" required>
+        <br>
+
+        <button type="button" onclick="verificarTriangulo()">Verificar Triângulo</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarTriangulo() {
+            const angle1 = parseInt(document.getElementById("angle1").value);
+            const angle2 = parseInt(document.getElementById("angle2").value);
+            const angle3 = parseInt(document.getElementById("angle3").value);
+
+            const sumAngles = angle1 + angle2 + angle3;
+
+            if (angle1 <= 0 || angle2 <= 0 || angle3 <= 0) {
+                document.getElementById("resultado").textContent = "Não é possível formar um triângulo com ângulo zero ou negativo.";
+            } else if (sumAngles === 180) {
+                if (angle1 < 90 && angle2 < 90 && angle3 < 90) {
+                    document.getElementById("resultado").textContent = "É um triângulo acutângulo.";
+                } else if (angle1 === 90 || angle2 === 90 || angle3 === 90) {
+                    document.getElementById("resultado").textContent = "É um triângulo retângulo.";
+                } else {
+                    document.getElementById("resultado").textContent = "É um triângulo obtusângulo.";
+                }
+            } else {
+                document.getElementById("resultado").textContent = "Os ângulos não formam um triângulo.";
+            }
+        }
+    </script>
+</body>
+</html>

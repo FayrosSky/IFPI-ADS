@@ -1,0 +1,73 @@
+Diagrama de Classe:
+Primeiro, olhar as entidades e ver se compartilham dos mesmo atributos.
+Disciplinas e professores e alunos não compartilham das mesma caracteríscas.
+Temos que ver se as classes e se elas compartilham dos mesmo atributos ... a gente vê se eles compartilham e assim fazer uma classe superior para que eles herdem dessa classe superior. E ficaria na classe aluno e professor só o que for específico de aluno e de aluno.
+
+2° Passo: fazer as associações/relacionamentos: Herança(não tem cardinalidade, são atômicos, são únicos.)
+agregação e composição é quando uma classe é outra , compõe nesse sentido. Porta compõe um carro.  
+
+No diagrama de classe (muito parecido com o diagrama entidade relacionamento), a cardinalidade '1 * -- 1 *", ou **  tá dizendo com  que é um relacionamento de N para N. 1 professor pode ter uma ou várias disciplinas e a disciplina pode ter um ou vários professores. Um turma pode ter várias disciplinas ou  
+A cardinalidade serve para nós limitarmos , "1 3" nesse caso o professor tem que ter no mínimo um e no máximo 3. 
+
+
+Mapeando diagrama de classe para o código:
+* Imple,emtar um sistema baseado em um modelo (a partir de um modelo vamos começar a implementar a partir do modelo)
+
+*   Necessariamente não precisamos implementar se temos uma herança múltipla. Qual a linguagem que tem herança. Ex: C++ tem herança múltipla.
+Temos que fazer a.
+
+Para fazermos o mapeamento do diagrama de classe para código: 
+Temos o nome da classe , os atributos e os métodos. 
+Sintaxe: 
+class nomedaclasse{
+    Private String nome;
+    private String descricao;
+    pretect double preco;
+    public void setNome
+}
+
+Os métodos vão ser as ações
+
+os atributos da classe que alguns podem ter acesso:
+acessos dos atributos:
+- >> privado(somente aquele atributo tem acesso. Não podemos acessar diretamente precisamos diretamente, precisamos de um método especídicos  que são get e o set para acessar os dados protegidos da classe.)
++ >> privado(Não temos acesso direto àquele atributo)
+# >> Protegido(não o mesmo que o privado)
+
+classe individual
+métodos que não retornam nada colocamos ele como void
+
+Um método estático não precisamos instanciar a classe.
+
+Implementação de uma associação:
+    como representamos a associação: linha tracejada.
+ 
+no caoso de implementação podemos uumokementar de duas formas:
+public class itemdepedido                                                       public class ItemDePedido
+{                                                                           {
+    private int quantidade;
+    private EspecificaçãoProduto produto
+}
+(nesse caso tamos guardado o produto todo é como se tivéssemos guar )       }
+
+na prática a guarda só o ID, ms na modelagem guardamenos o objeto inteiro, mas que fica mais complexo pois temos teríamos que ter um maior número de tabelas.
+
+
+Implementação Assoicação:
+* muitos para muito 
+pelo relaiconamente ser de muitos pra muitos a uml sabe que precisamos de uma classe para guardar isso (parecido com banco de dados)
+
+As classes geralmente são públicas porque precisamos que as outras classes a enxerguem, mas os atributos da classe geralmente são privados(encapsulamento em POO), ou seja só a classe pode acessar esses atributos e são uma forma de proteção.
+
+Na Implementação da agregação e composição é a mesma coisa, só muda a semântica. Nelas, vamos ter um vetor, uma lista recebendo todos os itens:
+como vamos ter mais um elemnto em uma classe vários elements de uma outra classe, geralmente vamoster um icolection, um vetor, vector
+
+puclic pedido{
+
+}
+na classe pedido temos que ter um vetor que agregem todos os itens do pedido(o arroz, feijão e etc.)
+
+
+
+Um atributo multivalorado em BD gera uma tabela.
+

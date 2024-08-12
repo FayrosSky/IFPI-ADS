@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular IMC</title>
+</head>
+<body>
+    <form id="imcForm">
+        <label for="altura">Digite a altura (em metros):</label>
+        <input type="number" id="altura" step="0.01" required>
+        <br>
+
+        <label for="peso">Digite o peso (em Kg):</label>
+        <input type="number" id="peso" step="0.01" required>
+        <br>
+
+        <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularIMC() {
+            const altura = parseFloat(document.getElementById("altura").value);
+            const peso = parseFloat(document.getElementById("peso").value);
+
+            if (altura <= 0 || peso <= 0) {
+                document.getElementById("resultado").textContent = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+
+            let mensagem = "";
+
+            if (imc < 25) {
+                mensagem = "Peso normal";
+            } else if (imc >= 25 && imc <= 30) {
+                mensagem = "Obeso";
+            } else {
+                mensagem = "Obesidade mórbida";
+            }
+
+            document.getElementById("resultado").textContent = `Seu IMC é: ${imc.toFixed(2)}. ${mensagem}`;
+        }
+    </script>
+</body>
+</html>

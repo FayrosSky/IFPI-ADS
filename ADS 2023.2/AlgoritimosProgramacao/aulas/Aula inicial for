@@ -1,0 +1,6 @@
+coleções: listas em que colocamos os objetos lá.
+
+Não utilizamos muito o while em programação, mas ele serve pra tudo tanto o cenário determinado quanto o indeterminado.
+A primeira versão de for não do while, inclusive faz tudo o que o while faz... O primeiro for, chamado de C-like(-estilo c... O for de 3 expressões- tem estado incial, condição de continuidade, trabalho e convergência de dados. ), diferente do for each (que é o for para os itens em cada coleção). Geralmente botamos o i por convenção de indexação.
+Observe que o for é uma simplificação do while.
+Na inicialização colocamos só uma variável.

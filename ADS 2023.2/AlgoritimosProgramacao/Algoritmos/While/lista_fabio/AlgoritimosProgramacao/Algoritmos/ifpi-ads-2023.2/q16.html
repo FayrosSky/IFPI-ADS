@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Aprovação</title>
+</head>
+<body>
+    <form id="gradesForm">
+        <label for="nota1">Digite a primeira nota:</label>
+        <input type="number" id="nota1" step="0.01" required>
+        <br>
+
+        <label for="nota2">Digite a segunda nota:</label>
+        <input type="number" id="nota2" step="0.01" required>
+        <br>
+
+        <button type="button" onclick="verificarAprovacao()">Verificar Aprovação</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarAprovacao() {
+            const nota1 = parseFloat(document.getElementById("nota1").value);
+            const nota2 = parseFloat(document.getElementById("nota2").value);
+
+            const media = (nota1 + nota2) / 2;
+
+            if (media >= 7.0) {
+                document.getElementById("resultado").textContent = "Aprovado";
+            } else {
+                const notaExame = parseFloat(prompt("Digite a nota do exame:"));
+
+                const mediaFinal = (media + notaExame) / 2;
+
+                if (mediaFinal >= 5.0) {
+                    document.getElementById("resultado").textContent = "Aprovado após exame";
+                } else {
+                    document.getElementById("resultado").textContent = "Reprovado";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

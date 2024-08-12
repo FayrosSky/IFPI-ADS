@@ -1,0 +1,143 @@
+O que faz continuar esse é o pensamento do while:
+Flag no while é o valor que impede do while continuar.
+
+o while é só um aperfeiçoamento só precisa de um "motivo para continuar". Geralmente o que as questões nos é condição de parar, hack: assim a gente pega a expressão booleana do que faz parar e nega essa condição, fazendo uma a condição de continuar.
+
+While True(um jogo sempre roda em while true(sempre verdadeiro) e quando a pessoa dá a condição de parada, tipo um 0, ele para):   
+break faz para o while e o for, independentemente da regra de continuidade. isso serve para caso apareça do 
+continue para só a volta atual(passar para próxima volta)... se aplicarmos o continue antes da converfência de dados, do incremento do número, ele vai ficar em um loop infinito por um motivo óbvio de não atualizar o valor. No for, não temos esse problema, tendo em vista que já faz a convergência de dados no início, já o while faz o convergência de dados no final.
+
+Se quisermos fazer um while nesse sentido, podemos fazer na seguinte estrutura:
+While True:
+    || Trabalho
+    || IF exp_bool_parada:
+        Break
+fazer uma menu:
+
+antes de executar o while, vamos mostrar_menu e obter_op:
+mostrar_menu
+obter op
+while op!=sair:
+    executar op
+    mostrar_menu
+    obter op
+
+
+get_number_min(menu, 0)
+(é o question que pede o text e mostra o menu que é o nosso label)
+
+na main deixamos a orquestração da tarefa e a chamada das funções.
+
+
+ARROW fUNCTION   >> SE O CORPO NÃO TIVER CHAVES NÃO PRECISAMOS COLOCAR A PALVARA RETURN... Quando temos uma arrow function ou uma anonimous function declaramos uma variável do tipo function , por isso tem o const
+
+funcão com (label, 1) >>> recebe um label e um valor mínimo.
+1°: dominar o while: O que faz o meu while continuar(condição de continuidade a condição do while), geralmente o que a questão nos mostra é o que para, por isso temos que pensar ao contrário. Sempre pensar na parada e na continuidade, a questão já nos dá a parada, temos que pensar na continuidade.
+
+O difícil mesmo é o while, já o for é só aplicar.
+
+Tipos de coleções de dados:
+    String e vetores são 0 indexáveis, ou seja, o index da primeira letra é zero e o último n-1 e são controladas pela linguagem de programação e pelo compilador.
+    As sequências têm chave e valor, ou seja, do tipo nome[k] >> V , estamos acessando determinado index. Também podemos fazer o operador de index, ou seja, acessar pelo index da seguinte forma: nome[2] >> '6' >>> ou seja, tá apontando para o valor que tá no index 2.
+    While e For cheiram a sequências ou coleções. >> String:(coleção de caracteres imutável, ou seja, só podemos percorrer e analisar, qual o tipo de elemento se é letra, numero ou caractere especial), vetores/list/array (são uma lista de qualquer tipo: de caractere, de números ou ... Podemos percorrer, adicionar e remover elementos como se fosse um cesta.). O modificador const não deixa que mude. 
+    Registros, dicionários são livres, ou seja, significa podemos controlar as chaves em vez de colocar um número podemos botar um nome, por exemplo, como sexo, nome
+ 
+    Registros elementos que têm chaves semânticas().
+
+
+No dia a dia 90% das vezes que a gente tá usando for ele tá acompanhado de uma coleção. Por isso, até fizeram uma for próprio pra coleções que é o for each.
+
+Tipos de for:
+numeric for (quando precisamos de uma sequência de números):
+for i := 1 to 10 do
+    print i
+
+js não tem for numérico, assim, fazemos a emulação desse for numerico com o for de tres expressões.
+js tem o for in e for of
+
+
+obser
+o for padrão é o for each C-like:
+for de três expressões.
+
+Em python só temos o for each
+E se quisermos fazer um for numérico em python? 
+Em python temos um gerador de sequência que é o range(valor inicial, valor final(esse valor não entra, só o seu antecessor), passo)
+
+Se quisermos percorrer itens em uma coleção, nós temos duas opções:
+
+
+
+o que precisamos saber de coleções é acessar de acordo com o index e saber o tamanho do vetor.
+
+//Push serve para colocar o item na cesta... 
+cesta
+for in, usamos um nome significativo.
+
+splice serve para retirarmos a parte de uma posição vários elementos do vetor:
+ex: [5, 6, 7, 8]
+    cesta.splice(2, 1)
+    [7]
+    cesta
+    [5, 6, 7] >>> observe que retiramos o 7 do vetor.
+modificador de variável: let, const
+
+
+
+Em js, para ver quanto tempo durou o programa, usamos console.time
+ver comando top no linux
+
+Sempre lembrar que o While tem 4 estados:
+    1° Estado anterior 
+    2° Condição continuidade
+    3° Trabalho
+    4° Convergência de dados
+
+Lembrar que o for de três expressões é igualzinho o while:
+    na primeira linha já colocamos o 1°, 2° e o 4° item do while na primeira linha do for de 3 expressões. E o trabalho, fica dentro desse for.
+Já o for each que é o for do python é usado para sequências, string/vetor.
+    Se precisamos percorrer as letras de uma coleção, usamos o for each
+
+lembrar que o while, apesar de ser usado mais para estruturas de repetição indefinida, ele serve pra tudo(definida, indefinida) 
+Em python só tem o for in e ele funciona como o for of do js.
+
+
+Um item que é uma sequência, ele também tem length
+
+o que o for in faz?? O in é pra index... O for in vai percorrer essa lista. serve para indexação.
+
+
+já o for of... se temos uma sequência e precisamos percorrer essa sequência, podemos usar o
+principal diferença:
+o for of percorre os elementos e nos dá o elemento, já o for in percorre as posições.
+se o problema for baseado na lógica do index, usamos o for in, quando precisar de index... Já quando 
+toda linguagem de programação ter o for of, pode não ter necessariamente esse nome, mas tem.  
+
+o for usando o slice(fatia) que é um método de python ou método de js.
+
+só tem o dois tipos de for: for de 3 expreesões(equivale ao while) e o for each(em js temos dois for each: for in e for of(elemento))... 
+Coleções: Strings, vetores, arrays.
+"para cada" que aparece no enunciado a gente já fica ligado que devemos usar o for each... Se não tiver sequência não tem porque o for in e o for of, ou seja, não tem 
+
+porque usar o for each, vai ser underfly já pega o valor e processa sem armazenar..
+O que é esperado 
+
+o string por si só é uma sequência, ou seja, aquilo que podemos percorrer de posição em posição.
+para cada elemento aplicar uma função >>> map(mapear, ou seja, aplicar a mesma função individualmente para cada elemento do vetor)  ou se quisermos usar a lambda function.. o que o map precisa de um função que receba um item e retorne esse item transformado. .. assim, podemos fazer uma arrow function em js ou lambda function em python... mas como o number já recebe o valor e o transforma, não precisamos fazer isso 
+
+o operador ternário: fazemos uma pergunta e criamos dois cenários: se for positiva ou negativa... criar ternários dentro de ternários cria uma árvore de possibilidades.
+estrutura: pergunta ? resulta_True : pegunta ? resulta_falso 
+
+
+estrutura de pack in a pack
+
+
+Sequência ou coleções: 
+    * Strings
+    * Vetores e Matrizes
+    * Registros
+    
+    isso desencadeia em: {Busca, ordenação} e em {Map, Filter e Reduce} e por último Arquivos.
+
+observe que isso é 
+    

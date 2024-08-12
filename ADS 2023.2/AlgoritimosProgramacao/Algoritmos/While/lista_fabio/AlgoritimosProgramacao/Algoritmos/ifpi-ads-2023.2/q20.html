@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificar Quadrante</title>
+</head>
+<body>
+    <h1>Identificar Quadrante</h1>
+    <label for="angulo">Digite a medida do ângulo (0 a 360°): </label>
+    <input type="number" id="angulo"><br><br>
+    
+    <button onclick="identificarQuadrante()">Identificar Quadrante</button><br><br>
+
+    <p>O ângulo está no <span id="quadrante"></span> quadrante.</p>
+
+    <script>
+        function identificarQuadrante() {
+            var angulo = parseFloat(document.getElementById("angulo").value);
+            var quadrante = document.getElementById("quadrante");
+
+            if (angulo >= 0 && angulo < 90) {
+                quadrante.textContent = "primeiro";
+            } else if (angulo >= 90 && angulo < 180) {
+                quadrante.textContent = "segundo";
+            } else if (angulo >= 180 && angulo < 270) {
+                quadrante.textContent = "terceiro";
+            } else if (angulo >= 270 && angulo <= 360) {
+                quadrante.textContent = "quarto";
+            } else {
+                quadrante.textContent = "Fora do intervalo válido (0 a 360°)";
+            }
+        }
+    </script>
+</body>
+</html>

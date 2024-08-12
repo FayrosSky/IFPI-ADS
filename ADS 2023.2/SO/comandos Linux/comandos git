@@ -1,0 +1,31 @@
+ls -la para listar o repositório do git criado
+rm -Rf .git/ >>> para remover o diretório git cria
+
+
+1°)Para transformar o nosso repositório local em um repositório git:
+git init
+
+2°)Para saber quais comandos o git controla:
+git ls-files
+
+3°) Para sabermos o estado atual do nosso repositório pro git:
+git status 
+
+arquivos untracked(que ainda não sendo monitorado pelo git)
+Por padrão o git não monitora os arquivos, para ele monitorar temos que usar o comando 
+git add:
+fazendo o git add index.html(agora, usando o git status, vamos ver que temos uma alteração para ser enviada, commitada que é o index.html, ou seja, quando formos gravar
+as alterações no nosso repositório, ele vai gravar que criou esse arquivo index.html. E a forma de gravar essas alterações no resositório é usando o commit)
+
+4°) Para gravar alterações no repositório:
+Commit
+git commit -m ""(para passarmos uma mensagem no nosso commit)
+
+
+Resumo: É trabalhando com o git add e com o git commit que vamos guardando as alterações do nosso projeto para depois poder verificar o que foi modificado, voltar pra algum estado antigo e assim ter um controle maior das nossas alterações.
+
+Quando estamos desenvolvendo um projeto é bem comum que queiramos testar coisas novas, fazer algumas alterações pequenas e ver se fica bom ou não, antes de colocar no respositório de fato. Mas o que acontece é que 
+
+
+Git Checkout:
+    Comando que permite a gente pegar um arquivo e voltar ele pro estado que ele estav no último commit que tem no repositório. Se passarmos o nome de branch, muda para essa branch e se passarmos o nome de arquivo, volta esse arquivo pro último estado que ele estava no repositório 

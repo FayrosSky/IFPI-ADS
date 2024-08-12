@@ -1,0 +1,90 @@
+correção de 
+
+O projeto lógico >>> esquema do bd
+e quanto tiramos um fotografia >> instância do bd
+
+Exitem 4 tipos de relacinamentos entre tabelas:
+
+
+Muitos para muitos tem que criar uma tabela intermediária
+
+
+Nome nunca é uma boa opção para ser chave-primária.
+
+A chave estrangeira ajuda a evitar anomalia de inclusão... São implemnetadas para evitar que façamos a inserção de dados  , pois quando fazemos a inserção de dados na chave-primária eles já têm que existir na chave primária.
+
+Em um banco de dados relacional que 4 tuplas é o mesmo 4 registros. 
+
+linha, registro e tuplas são as mesmas coisas.
+
+
+Modelo Lógico x Modelo Relacional:
+
+Algoritmo de transforma do modelo relacional para modelo lógico:
+1° todo atributo indetificador bem definido vira tabela.
+
+Nos relacionametos de 1 para N, a tabela que tem a cardinalidade N vai receber a chave primária da que tem cardinalidade 1 como chave estrangeira(o pé de galinha na tabela que tem cardinalidade N.).
+
+Quando temos o relacionamento 1:1 entre algumas entidades, temos algumas opções: podemos escolher uma delas para receber a chave estrangeira(ou há quem dependa que essas duas entidades se juntem para formar uma única tabela.). Isso no relacionamento de 1:1 vale frisar. Em todos os outros relacionamentos valem as outras regrinhas que já vimos.
+
+Possibilidades de um relacionamento se transformar em tabela: 
+    Se o relacionamento tiver atributo, ou no relacionamento N:N o relacionamento gera tabela.
+
+Existe uma etapa na modelagem de dados que se chama normalização que é depois que montamos o modelo lógico nós veríamos que temos dois atributos que servem para fazer a identificação de um veículo, por exemplo, 
+Tem uma regra na normalização que diz que os atributos têm que tá ligados diretamente à chave.
+
+
+
+Existem outros modelos de banco de dados além do relacional como, por exemplo, sistemas de banco de dados orientados a objetos. Também tem o caso de sistemas de banco de dados híbridos que são sistemas de banco de dados objeto-relacional. Nesse contexto, o Postgree (que é o que vamos estudar na disciplina) serve tanto para o modelo relacional quanto para o orientado a objetos. Como vamos criar esse banco, como vamos criar ... O SQL tem um padrão, mas vamos ver que os SGBD tem algumas funcionalidades que MySQL implementou e o Postgree não tem, por exemplo, ou vice-versa . Mesma forma O MySQL e o SQL server. O que nos basta saber é que temos funcionamentos de banco de dados um pouco diferentes a depender do banco de dados.
+
+
+
+
+SGBD POstgreSQL assim como todos os SGBD eles funciona como um serviço no computador(rodando em background). Assim, quando decidimos instalar o POstgreSQL ele não vai aparecer como um programa(não é um progrma que tem uma interface para conversar com o usuário) ele é um serviço que fica conversando com o usuário, ele se autoinicializa. Enquanto serviço, podemos sim iniciar e desabilitar esse serviço, mas é um processo um pouquinho mais complicado.
+    Três possibilidades de usar um postgree: Através de um terminal usando a linguagem psql; através do aplicativo pg Admin(programa separado do Postgree, podemos ter e não ter o outro. Programa que foi criado para fazer a interface do PostgreeSQL); Aplicação de Terceiros(que se conectado ao Postgree para fazer )... E todas essas comunicações usam comandos SQL.
+
+    Nossa fonte de consulta, programa, documentação: www.postgresql.org
+
+
+
+Podemos acessasr o postgree que esteja na nuvem, local (cada computador vai se logar ao servidor postgree localmente na máquina), ou de outro computador que esteja na mesma rede. 
+    Localhost é o enderço do serviço que vamos nos comunicar. 
+    Como podemos ter vários serviços rodando então vamos ter uma porta-padrão para o funcionamento do postgree. A sugestão que nos dá e é o padrão postgree é o 5432... POr que uma pessoa colocaria em uma porta que não fosse o padão dela?? Se tivéssemos mais de um servidor instalado, um postgree na versão 14 e outro na versão mais novo, justamente não querer apagar essa ... Ou questão de segurança o cara vai tentar atacar a porta 5432 pra o cara não saber o meu servidor de banco de dados esteja funcionando.... O importante é sabermos qual o endereço do banco de dados e qual a porta ele está se conectando. Dentro de um banco de dados temos um ou vários usuários e esses usuários tem permissões diferentes... POdemos ter usuários que só veem tabelas específicas do banco de dados, por exemplo. 
+
+-h para informar o servidor  -p para informar a porta.    
+No caso do padrão a senha é o mesmo nome do usuário.
+
+
+Fazer a conexão via SQL shell
+
+como fazer a conexão?
+
+
+Comandos psql:
+postgres=#(nome do banco de dados)
+1° comando da linguagem psql: listar todos os bancos de dados que estão no servidor: \l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

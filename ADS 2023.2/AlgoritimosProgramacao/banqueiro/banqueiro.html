@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        * {
+            /* elimina padrões do navegador de margens */
+            margin: 0;
+            padding: 0;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        input {
+            /* diminui a largura do input */
+            max-width: 4em;
+        }
+        body {
+            /* força os itens do body (duas divs) a ficarem um do lado do outro */
+            display: flex;
+            flex-direction: row;
+        }
+        body > div {
+            /* permite os divs filhos de body a expandirem horizontalmente */
+            flex-grow: 1;
+            padding: 30px;
+        }
+        table#output tbody td {
+            /* alinha os tds no tbody do output para a direita (os números) */
+            text-align: right;
+            padding: 0px 4px;
+        }
+        table#output tbody th {
+            /* alinha os ths no tbody do output para a esquerda (os eventos) */
+            text-align: left;
+        }
+        #output {
+            /* centraliza a table horizontalmente */
+            margin: 0 auto;
+        }
+        #output_msg {
+            /* centraliza a mensagem final */
+            text-align: center;
+        }
+    </style>
+    <script>
+        // refaz todos os inputs exceto o de quantidade
+        // deve ser chamado sempre que os inputs quant_recursos e quant_tarefas mudarem de valor
+        function refaz_inputs() {
+            // lê a quantidade de recursos e tarefas
+            let quant_recursos = Number(document.getElementById("quant_recursos").value);
+            let quant_tarefas = Number(document.getElementById("quant_tarefas").value);
+
+            // constroi as células das letras (recursos)
+            let recursos = "";
+            for (let i = 0; i < quant_recursos; i++) {
+                recursos += `<th>${String.fromCharCode(65 + i)}</th>`
+            }
+
+            // constroi os inputs, repetindo os inputs com String.repeat
+            let inputs = '<td><input type="number" value="0" oninput="executa()"></td>'.repeat(quant_recursos);
+
+            // constroi as linhas das tarefas (recursos)
+            let tarefas = "";
+            for (let i = 0; i < quant_tarefas; i++) {
+                tarefas += `<tr><th>${i}</th>${inputs}</tr>`
+            }
+
+            // aplica as mudanças para as duas matrizes
+            for (let table_id of ["matriz_tem", "matriz_quer"]) {
+                let table = document.getElementById(table_id);
+                table.innerHTML = `<thead><tr><th></th>${recursos}</tr></thead><tbody>${tarefas}</tbody>`;
+            }
+
+            // atualiza o vetor de recursos disponíveis
+            document.getElementById("recursos_trhead").innerHTML = recursos;
+            document.getElementById("recursos_trbody").innerHTML = inputs;
+
+            // atualiza a saida para mostrar o resultado zerado
+            executa();
+        }
+
+        // lê a tabela pelo seu id, e retorna os números dos inputs dela como uma matriz
+        function ler_matriz(id) {
+            // obtem o tbody da tabela em questão
+            let tbody = document.getElementById(id).lastElementChild;
+            // para cada linha
+            return Array.from(tbody.children).map(
+                // para cada célula, exceto a primeira
+                x => Array.from(x.children).slice(1).map(
+                    // obtem o valor do primeiro elemento dentro da célula (o input)
+                    x => Number(x.firstElementChild.value)
+                )
+            );
+        }
+
+        // lê todos os inputs e cálcula o que exibir na div output e output_msg
+        function executa() {
+            // lê a quantidade de recursos e tarefas
+            let quant_recursos = Number(document.getElementById("quant_recursos").value);
+            let quant_tarefas = Number(document.getElementById("quant_tarefas").value);
+            
+            // constroi as células das letras (recursos)
+            let header_recursos = "";
+            for (let i = 0; i < quant_recursos; i++) {
+                header_recursos += `<th>${String.fromCharCode(65 + i)}</th>`
+            }
+
+            // lê o vetor de recursos disponíveis
+            let recursos_trbody = document.getElementById("recursos_trbody");
+            // para cada célula
+            let disponiveis = Array.from(recursos_trbody.children).map(
+                // obtem o valor do primeiro elemento (o input)
+                x => Number(x.firstElementChild.value)
+            );
+
+            let tem = ler_matriz("matriz_tem");
+            let quer = ler_matriz("matriz_quer");
+
+            // faz algumas checagens para ver se os tamanhos das matrizes bate com o esperado
+            assert(tem.length == quant_tarefas);
+            assert(tem.every(x => x.length == quant_recursos));
+            assert(quer.length == quant_tarefas);
+            assert(quer.every(x => x.length == quant_recursos));
+            assert(disponiveis.length == quant_recursos);
+
+            // inicializa um array para rastrear a tarefas concluidas
+            let concluido = Array(quant_tarefas).fill(false);
+
+            // inicializa uma string para guardas as linhas que relatam os eventos
+            let tr_eventos = "";
+            while (true) {
+                // emite um evento, mostrando quais os recursos disponíveis no momento
+                let disponiveis_tr = disponiveis.map(x => `<td>${x}</td>`).join("");
+                tr_eventos += `<tr><th></th>${disponiveis_tr}</tr>`;
+
+                // procura o índice da próxima tarefa a ser executada
+                // ou seja, encontra o índice da primeira tarefa, que não esteja concluida e
+                // que tenha um requerimento menor que ou igual ao disponível
+                let prox_executar = quer.findIndex(
+                    (requerimentos, i) => !concluido[i] && requerimentos.every(
+                        (requerimento, j) => requerimento <= disponiveis[j]
+                    )
+                );
+
+                if (prox_executar == -1) {
+                    // nenhuma tarefa foi encontrada, então ou executamos todas
+                    // ou nenhuma teve seu requerimento satisfeito (deadlock)
+                    break;
+                } else {
+                    // emite um evento dizendo que a tarefa começou a executar e tomou de conta dos recursos
+                    let removidos = quer[prox_executar].map(x => `<td>-${x}</td>`).join("");
+                    tr_eventos += `<tr><th>${prox_executar} Começa</th>${removidos}</tr>`;
+
+                    // emite um evento exibindo os recursos disponíveis agora que a tarefa começou a executar
+                    let intermediario = disponiveis.map((x, i) => `<td>${x - quer[prox_executar][i]}</td>`).join("");
+                    tr_eventos += `<tr><th>${prox_executar} Executando</th>${intermediario}</tr>`;
+
+                    // emite um evento dizendo que a tarefa terminou de executar e retornou seus recursos
+                    let adicionados = tem[prox_executar].map((x, i) => `<td>+${x + quer[prox_executar][i]}</td>`).join("");
+                    tr_eventos += `<tr><th>${prox_executar} Termina</th>${adicionados}</tr>`;
+
+                    // marca essa tarefa como concluída
+                    concluido[prox_executar] = true;
+
+                    // adiciona os recursos que essa tarefa tinha para os disponíveis 
+                    tem[prox_executar].forEach((tem, i) => disponiveis[i] += tem);
+                }
+            }
+
+            // faz um vetor com todas as tarefas que nunca executaram
+            let tarefas_deadlock = concluido.flatMap((x, i) => x ? [] : [i]);
+
+            // gera uma mensagem informativa resumindo se deu deadlock ou não
+            let msg = "";
+            if (tarefas_deadlock.length === 0) {
+                msg = "Todas as tarefas foram executadas, estado seguro";
+            } else if (tarefas_deadlock.length === 1) {
+                msg = `DEADLOCK, a tarefa ${tarefas_deadlock[0]} não foi executada`;
+            } else {
+                let ultima = tarefas_deadlock[tarefas_deadlock.length - 1];
+                let menos_a_ultima = tarefas_deadlock.slice(0, -1);
+                msg = `DEADLOCK, as tarefas ${menos_a_ultima.join(", ")} e ${ultima} não foram executadas`;
+            }
+
+            // exibe os eventos guardados em tr_eventos
+            document.getElementById("output").innerHTML = `<thead><tr><th>Evento</th>${header_recursos}</tr></thead><tbody>${tr_eventos}</tbody>`;
+
+            // exibe a mensagem de se é deadlock ou não
+            document.getElementById("output_msg").innerText = msg;
+        }
+
+        // função auxiliar, emite um erro se o parâmetro der false
+        function assert(assertion) {
+            if (!assertion) throw new Error("assert falhou");
+        }
+
+        // assim que a página terminar de carregar, lê os valores padrões e executa o algoritimo
+        document.addEventListener("DOMContentLoaded", executa);
+    </script>
+</head>
+
+<body>
+    <div>
+        <label for="quant_tarefas">Número de tarefas</label>
+        <br>
+        <input id="quant_tarefas" type="number" oninput="refaz_inputs()" value="3">
+        <br>
+        <label for="quant_recursos">Número de recursos</label>
+        <br>
+        <input id="quant_recursos" type="number" oninput="refaz_inputs()" value="4">
+        <br>
+        <br>
+        <label for="recursos_disp"><b>Recursos disponíveis:</b></label>
+        <table id="recursos_disp">
+            <thead>
+                <tr id="recursos_trhead">
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="recursos_trbody">
+                    <td><input type="number" value="2" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <label for="matriz_tem"><b>Matriz de Alocação Corrente</b></label>
+        <table id="matriz_tem">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>0</th>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td><input type="number" value="2" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                    <td><input type="number" value="2" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <label for="matriz_quer"><b>Matriz de requisições</b></label>
+        <table id="matriz_quer">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>0</th>
+                    <td><input type="number" value="2" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td><input type="number" value="2" oninput="executa()"></td>
+                    <td><input type="number" value="1" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                    <td><input type="number" value="0" oninput="executa()"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table id="output"></table>
+        <br>
+        <h3 id="output_msg"></h3>
+    </div>
+</body>
+
+</html>

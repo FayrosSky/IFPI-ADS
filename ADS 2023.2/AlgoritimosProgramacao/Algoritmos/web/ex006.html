@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+</head>
+<body>
+    <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()"> <!--- #Quando clicarmos em cima da div, ele vai clickar disparar(chamar o método) !--> 
+        interaja...
+    </div>
+
+    <script>
+        var a = window.document.getElementById('area') <!-- #agora podemos chamar esse innerText a em qualquer lugar, pois criamos esse objeto do lado de ora para ficar com o escopo global -->
+    
+        function clicar() {
+            a.innerText = 'Clicou!'
+        }
+        function entrar() {
+            a.innerText = 
+        }
+        function sair(){
+            a.innerText = "Saiu!"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+@startuml
+class trem {
+    
+}
+
+class vagoes {
+    
+}
+
+<> diamond
+
+trem . vagoes
+diamond - "from 0..*" Station
+diamond - "to 0..* " Station
+
+@enduml

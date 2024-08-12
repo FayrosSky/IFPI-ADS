@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Idade</title>
+</head>
+<body>
+    <form id="birthdateForm">
+        <label for="currentDate">Data atual:</label>
+        <input type="date" id="currentDate" required>
+        <br>
+
+        <label for="birthdate">Data de nascimento:</label>
+        <input type="date" id="birthdate" required>
+        <br>
+
+        <button type="button" onclick="calcularIdade()">Calcular Idade</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularIdade() {
+            const currentDate = new Date(document.getElementById("currentDate").value);
+            const birthdate = new Date(document.getElementById("birthdate").value);
+
+            const diffInMilliseconds = currentDate - birthdate;
+            const ageDate = new Date(diffInMilliseconds);
+
+            const years = ageDate.getUTCFullYear() - 1970;
+
+            document.getElementById("resultado").textContent = `Idade: ${years} anos`;
+        }
+    </script>
+</body>
+</html>

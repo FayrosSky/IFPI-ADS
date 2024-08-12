@@ -1,0 +1,30 @@
+@startuml
+
+class publicacao{
+    - ID
+    - Título
+    - Autor 
+    - ISBN
+    - Disponibilidade
+}
+
+class Emprestimo{
+    - ID
+    - Data Empréstimo
+    - Data Devolução
+    - Status
+}
+
+class Usuario{
+    - ID
+    - Nome
+    - Endereço
+    - Telefone
+}
+
+class reserva{
+    - ID
+    - Data Reserva
+    - Status
+    + verificarReservas():
+}

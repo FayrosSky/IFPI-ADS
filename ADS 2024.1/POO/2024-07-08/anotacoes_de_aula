@@ -1,0 +1,5 @@
+constrututor: inicializador do objeto.
+Pesquisar sobre tipagem interpolada.
+cuida com o watch parado no typescript. Como foi dito, a última versão é sempre mantida.
+
+coletor de lixo = gerenciador de memória. Em C , C++ quando alocamos, temos que desalocar uma variável. Em TypeScript não precisa disso.
