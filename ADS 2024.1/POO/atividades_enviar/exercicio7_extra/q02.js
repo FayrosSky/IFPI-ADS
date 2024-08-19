@@ -1,23 +1,36 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pessoa = void 0;
-class Pessoa {
-    constructor(nome, sobrenome) {
+var Pessoa = /** @class */ (function () {
+    function Pessoa(nome, sobrenome) {
         this._nome = nome;
         this._sobrenome = sobrenome;
     }
-    get nome() {
-        return this._nome;
-    }
-    get sobrenome() {
-        return this._sobrenome;
-    }
-    get nomeCompleto() {
-        return `${this._nome} ${this._sobrenome}`;
-    }
-}
+    Object.defineProperty(Pessoa.prototype, "nome", {
+        get: function () {
+            return this._nome;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Pessoa.prototype, "sobrenome", {
+        get: function () {
+            return this._sobrenome;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Pessoa.prototype, "nomeCompleto", {
+        get: function () {
+            return "".concat(this._nome, " ").concat(this._sobrenome);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Pessoa;
+}());
 exports.Pessoa = Pessoa;
-const pessoa = new Pessoa("João", "Silva");
+var pessoa = new Pessoa("João", "Silva");
 console.log("Nome: ", pessoa.nome);
 console.log("Sobrenome: ", pessoa.sobrenome);
 console.log("Nome completo: ", pessoa.nomeCompleto);
