@@ -1,0 +1,34 @@
+As listas são uma das estruturas de dados fundamentais em programação, utilizadas para armazenar e organizar conjuntos de informações de forma sequencial. Elas podem ser implementadas de diversas maneiras, sendo as mais comuns as listas ligadas e as listas duplamente ligadas. Abaixo, explico os tipos de listas e suas características.
+
+Tipos de Listas: 
+
+1. Listas Ligadas
+	As listas ligadas consistem em uma coleção de elementos chamados "nós". Cada nó contém dois componentes principais:
+Dados: O valor ou informação que o nó armazena.
+Ponteiro: Uma referência ao próximo nó na sequência.
+Essa estrutura permite que novos elementos sejam adicionados sem a necessidade de alocar um espaço contínuo na memória, o que é uma vantagem em relação a outras estruturas, como arrays. As listas ligadas podem ser simples ou circulares:
+	Simples: Cada nó aponta apenas para o próximo nó.
+	Circular: O último nó aponta de volta para o primeiro, formando um ciclo.
+2. Listas Duplamente Ligadas
+	As listas duplamente ligadas são uma extensão das listas ligadas, onde cada nó possui dois ponteiros:
+Um ponteiro para o próximo nó.
+Um ponteiro para o nó anterior.
+Essa estrutura facilita a navegação em ambas as direções, permitindo operações mais eficientes de inserção e remoção de elementos em qualquer posição da lista.
+Vantagens e Desvantagens
+Vantagens
+Flexibilidade: Não é necessário definir um tamanho fixo, permitindo que a lista cresça ou diminua conforme necessário.
+Inserções e Remoções Eficientes: As operações de inserção e remoção podem ser realizadas em tempo constante, desde que se tenha um ponteiro para o nó a ser modificado.
+Desvantagens
+Uso de Memória: Cada nó requer espaço adicional para armazenar ponteiros, o que pode ser ineficiente em termos de memória.
+Acesso Sequencial: Para acessar um elemento em uma lista ligada, é necessário percorrer os nós sequencialmente, resultando em um tempo de busca linear 
+
+O(n) no pior caso
+
+1
+.
+Aplicações
+As listas são amplamente utilizadas em diversas aplicações, como:
+Estruturas de Dados Mais Complexas: Listas são frequentemente usadas para implementar pilhas e filas.
+Representação de Dados: Podem ser usadas para armazenar sequências de dados, como playlists de músicas ou listas de tarefas.
+Geometria e Mapas: Estruturas circulares são úteis em aplicações que requerem uma representação cíclica.
+Em resumo, as listas são uma estrutura de dados versátil e poderosa, adequada para uma variedade de aplicações em programação e ciência da computação.

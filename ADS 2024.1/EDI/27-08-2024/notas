@@ -1,0 +1,76 @@
+*** Lista Encadeadas ***
+* Operações recursivas
+* Lista de Estruturas
+* Lista Circular
+* Lista Duplamente encadeada
+
+
+nó é o conjunto dos dados e dos ponteiros. 
+
+Algoritmo recursivo para imprimir os nomes de uma lista em C(que não tem indexação nos ponteiros)
+
+criamos um ponteiro auxiliar e enquanto não for nulo , escrevemos o seu conteúdo e recebemos o conteúdo do próximo.
+
+p = p.proxim (p mostra seu conteúdo e recebe o p.próximo -na fila se queremos mostrar -)
+
+Estouro de Pilha: Quando não conseguimos usar a recursividade de pilhas 
+
+
+4 Passos da recursividade:
+1)Chamar a si mesmo
+2)caso simples(parada)
+3) trabalho
+4) convergência de dados
+
+exemplo clássico: fatorial de um númeoro:
+algoritmo:
+def fatorial(n)
+    if n ==  1
+     return 1
+ 
+    return n x fatorial(n -1)
+
+
+para cada nó temos um nó cabeça 
+
+
+lembrando que return para a função e break para estrutura de repetições.
+
+usamos recursividade quando cada etapa tem cara do problema como um todo.
+
+para somar todos os nós em um árvores(EDII) é só uma linha de código:
+nó de um árovres tem dois conteúdos e tem dois nós (direita e esquerda) o somatório de um árores vai ser a soma desse soma com o com a soma da árvore da esquerda e a árvore da direita:
+		Def somaArvores(ARV)
+			return ARV.info + soma.arv(esq)+soma.arv(dir)
+nó atual 
+
+se formos fazer
+
+o grafo a gente ver como plano.... a árvore não, ela começa na raiz e vai para as folhas
+no grafo cada nó tem uma lista de nós que se conectam.
+
+fazer uma lista ou um grafo com for daria... mas seria for para cada nível e não saberíamos quantos níveis tem.
+
+
+
+pilha e filas são listas encadeadas com regras. Assim, o segredo é dominar listas encadadeadas.
+
+
+
+Lista circular:
+	lembrando que temos a estratégia de ter o ponteiro mestre que aponta para a a estrutura cabeça em listas encadeadas e temos o próximo. Cada nó aponta pra outro nó, se for uma lista com um único nó, ele vai apontar pra ele mesmo. Aqui, não tem essa noção de primeiro. Aqui, vamos arbitrar o 
+
+
+Lista duplamente encadeada:
+	Ela pode ser tanto a a  duplamente encadeada linear ou duplamente encadeada circular. Em resumo se tem ponteiro de idade e de volta(nó só pra frente ou nó pra frente e pra trás). Pra saber se é circular é só perguntar se tem o conceito de fim, se tiver conceito de fim não é circular, se não tiver e vai girando, girando e girando, então é circular.
+	para inserir no meio: o próximo do anterior do atual vai ser o novo e o próximo do novo vai ser o atual e o anterior do novo vai ser o anterior do atual:			atual -> ant -> prox = novo
+			atual -> ant  = novo (o anterior do atual vai ser o novo)			novo -> prox = atual -> ant
+			atual -> ant = novo -> ant
+
+
+
+
+
+
+
+
