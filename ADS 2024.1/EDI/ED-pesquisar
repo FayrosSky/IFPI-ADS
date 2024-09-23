@@ -1,0 +1,74 @@
+Arrays: Coleções ordenadas de elementos do mesmo tipo, acessíveis por índices.
+
+Listas Ligadas: Sequências de elementos onde cada elemento aponta para o próximo. Inclui:
+
+Listas Simplesmente Encadeadas
+
+Listas Duplamente Encadeadas
+
+Listas Circulares
+
+Pilhas (Stacks): Estruturas que seguem o princípio LIFO (Last In, First Out), onde o último elemento inserido é o primeiro a ser removido.
+
+Filas (Queues): Estruturas que seguem o princípio FIFO (First In, First Out), onde o primeiro elemento inserido é o primeiro a ser removido.
+
+Árvores: Estruturas hierárquicas compostas por nós, onde cada nó pode ter zero ou mais filhos. Exemplos incluem:
+
+Árvores Binárias
+
+Árvores de Busca Binária
+
+Árvores AVL
+
+Árvores Rubro-Negras
+
+Grafos: Conjuntos de nós (ou vértices) conectados por arestas, utilizados para representar relações complexas.
+
+Tabelas Hash: Estruturas que associam chaves a valores, permitindo acesso rápido aos dados através de uma função hash.
+
+Tries: Estruturas de árvore utilizadas para armazenar um conjunto dinâmico de strings, permitindo buscas eficientes.
+
+Essas estruturas são fundamentais na ciência da computação e desempenham um papel crucial na eficiência e performance de algoritmos e sistemas
+
+Heap: Uma árvore binária completa que satisfaz a propriedade de heap, onde cada pai é maior (ou menor) que seus filhos, permitindo a implementação eficiente de filas de prioridade.
+
+Segment Tree: Uma árvore usada para armazenar intervalos ou segmentos, permitindo consultas rápidas sobre somas ou mínimos em intervalos de um array.
+
+Fenwick Tree (ou Binary Indexed Tree): Uma estrutura que permite a atualização e consulta de prefixos em um array, útil para operações de soma cumulativa.
+
+Disjoint Set (ou Union-Find): Uma estrutura que mantém um conjunto de elementos particionados em subconjuntos disjuntos, suportando operações de união e busca.
+
+Deque (Double-ended Queue): Uma fila onde os elementos podem ser adicionados ou removidos tanto do início quanto do final.
+
+Skip List: Uma lista encadeada probabilística que permite inserções, deleções e buscas em tempo logarítmico.
+
+B-trees: Estruturas de dados balanceadas usadas principalmente em sistemas de gerenciamento de banco de dados e sistemas de arquivos para permitir buscas eficientes.
+
+Bloom Filter: Uma estrutura probabilística que permite testar se um elemento pertence a um conjunto, com a possibilidade de falsos positivos.
+
+Priority Queue: Uma coleção onde cada elemento tem uma prioridade associada, permitindo a remoção do elemento com maior prioridade.
+
+Essas estruturas são utilizadas em diversas aplicações, desde algoritmos de busca e ordenação até o gerenciamento eficiente de dados em bancos de dados e sistemas operacionais. A escolha da estrutura correta depende das necessidades específicas do problema em questão.
+
+
+Hash Map: Uma tabela hash que associa chaves a valores, permitindo acesso rápido aos dados através de uma função hash. 
+
+Sparse Matrix: Uma matriz que contém a maioria dos elementos como zero, utilizando técnicas especiais para armazenar apenas os elementos não nulos e suas posições.
+
+Matrix: Estrutura de dados bidimensional que armazena dados em linhas e colunas, amplamente utilizada em matemática e ciências da computação.
+
+Quad Tree: Uma árvore de divisão espacial que divide um espaço bidimensional em quatro quadrantes ou regiões, útil para representar dados espaciais.
+
+Octree: Semelhante à Quad Tree, mas para espaços tridimensionais, dividindo o espaço em oito partes.
+
+R-tree: Uma estrutura de dados para indexação multidimensional, frequentemente usada em sistemas de gerenciamento de banco de dados espaciais .
+
+Suffix Tree: Uma árvore que representa todos os sufixos de uma string, permitindo buscas rápidas por padrões.
+
+K-D Tree: Uma árvore binária usada para organizar pontos em um espaço k-dimensional, útil em algoritmos de busca e classificação.
+
+Skip List: Uma lista encadeada probabilística que permite inserções e buscas em tempo logarítmico.
+
+Essas estruturas são utilizadas em diversas aplicações, desde algoritmos de busca e ordenação até a modelagem de dados complexos em bancos de dados e sistemas de inteligência artificial. A escolha da estrutura correta é fundamental para otimizar o desempenho e a eficiência do sistema.
+
+
