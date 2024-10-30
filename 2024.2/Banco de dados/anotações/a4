@@ -1,0 +1,19 @@
+
+ null: 
+
+temos duas configurações na hora que se cria a chave estrangeira:
+
+on update:
+
+    no action: Não faz nada só para o programa se tiver algo erro! significa que se viole, dá erro! Ex: se tiver um clinete e uma venda que aponta pra aquele cliente 
+    cascade: faz as coisas em cascata: se dermos um delete em cliente ele vai deletar clientes e os número de telefone, por exemplo.
+    set null: na tabela dependenete qquando o cliente for apagado ele vai setar null ... em vendas quando o cliente for apagado a venda não for apagada.
+
+on delete:
+
+    on action
+    cascade
+    set null
+ 
+
+
