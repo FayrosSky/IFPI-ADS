@@ -1,4 +1,5 @@
 import re
+print(f"ft: {__name__}")
 
 # Definição das regras de tokenização
 token_patterns = [
@@ -15,8 +16,11 @@ token_patterns = [
     (r'WHILE', 'WHILE'),
     (r'UNTIL', 'UNTIL'),
     (r'LOOP', 'LOOP'),
+    (r'TRUE', 'TRUE'),
+    (r'FALSE', 'FALSE'),
     (r'\+', 'PLUS'),
     (r'-', 'MINUS'),
+    (r'TO', 'TO'), 
     (r'\*', 'MULT'),
     (r'/', 'DIV'),
     (r'\\', 'INT_DIV'),  # Inteiro divisão
@@ -82,21 +86,23 @@ def tokenize_lines(code):
 
     return all_tokens
 
-# Exemplo de uso
-code_example = """
-SET x TO + 1 2
-PRINT x
-IF >= x 5 THEN
-    PRINT 'x é maior que 5'
-ELSE
-    PRINT 'x é menor ou igual a 5'
-END IF
-END
-"""
-tokens = tokenize_lines(code_example)
+if __name__== '__main__':
 
-for i, line_tokens in enumerate(tokens, start=1):
-    print(f"Linha {i}:")
-    for token in line_tokens:
-        print(token)
-    print()  # Espaço em branco entre as linhas
+    # Exemplo de uso
+    code_example = """
+    SET x TO + 1 2
+    PRINT x
+    IF >= x 5 THEN
+        PRINT 'x é maior que 5'
+    ELSE
+        PRINT 'x é menor ou igual a 5'
+    END IF
+    END
+    """
+    tokens = tokenize_lines(code_example)
+
+    for i, line_tokens in enumerate(tokens, start=1):
+        print(f"Linha {i}:")
+        for token in line_tokens:
+            print(token)
+        print()  # Espaço em branco entre as linhas
