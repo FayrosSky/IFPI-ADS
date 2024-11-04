@@ -1,4 +1,3 @@
-bin/
 obj/
 *.txt
 node_modules
@@ -10,4 +9,10 @@ lerna-debug.log*
 .npm/
 .yarn/
 *.tfrecord
-*.json
+*.mp4
+*.avi
+integrantes.pdf
+q02.js
+q02.ts
+repositorio-kernel32
+trabalho-final
