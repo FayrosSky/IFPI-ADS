@@ -1,0 +1,1 @@
+Geralmente linguagens transpiladas como TypeScript servem como uma ferramenta para adicionar funcionalidades que a linguagem alvo não tem. Exemplo: TypeScript tem interfaces, classes abstratas, generics, sistema de tipos, coisas que o js não tem.

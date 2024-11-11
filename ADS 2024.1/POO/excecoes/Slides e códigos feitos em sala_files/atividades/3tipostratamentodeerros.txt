@@ -1,0 +1,6 @@
+Os 3 tipos mais comuns de tratamento de erros em programação são:
+1. Tratamento com Try-Catch(ou Try-Except)
+2. Validação de Dados
+3. Tratamento de Erros personalizados
+
+

@@ -1,0 +1,39 @@
+Listas encadeadas
+tentar fazer tudo com elas só que em C:
+- Inserir(final, incio, posição, ordem)
+- remover(final, inicio, pos, splice, por, valor)
+L: liste/nó (p ponteiro . próximo)
+
+O que é uma Lista encadeada?
+	Uma lista encadeada é uma coleção de elementos, chamados de nós, onde cada nó contém um valor e um ponteiro que aponta para o próximo nó na sequência. Isso permite que a lista cresça e diminua dinamicamente, ao contrário de arrays, que têm um tamanho fixo.
+
+Estrutura de Nó:
+Em C, um nó de uma lista encadeada pode ser definido da seguinte forma:
+typedef struct Node{
+	int data;  // Dado armazenado
+	struct Node* next; //Ponteiro para o próximo nó
+}Node;
+
+
+//Arquivo de definição 
+//Arquivo de implementação
+//E um arquivinho de teste;  
+
+ver o exemplo da matriz convertida em um vetor:
+a fórmula é: i x colunaa + j = (indice do vetor linear v[i])
+exemplo: M[0][0] = v[0], M[1][0] = v[3] 
+de forma linear essa matriz é convertida:
+ | | |
+ | | |2x3   vetor de 6 posições : |0 |1 |2 |3 |4 |5 |
+
+
+terceira forma de representar uma matriz é fazer uma matriz de vetores apontando para outros vetores(melhor forma do ponto de vista de performance, só reserva o espaço de memória à medida que formos precisando, usando o malloc.)
+
+dá pra criar uma lista encadeada orientada a objetos. Tente fazer!!
+É mesma estrutura de dados só que orientada a objetos
+
+
+
+ 
+
+

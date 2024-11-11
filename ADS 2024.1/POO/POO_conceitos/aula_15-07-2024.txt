@@ -1,0 +1,17 @@
+aula de encapsulamento: pesquisar a diferença entre private e protected, public e readonly.
+
+modificadores de acesso: private, protected, public e readonly.
+
+métodos de escrita e métodos de leitura.
+no java se faz muito isso: diz que o atributo é privado e faz o método de leitura e método de escrita.
+
+dica: 
+tudo que precisarmos proteger deixamos privado(por exemplo, em uma autenticação, nós usamos isso podemos o que só precisa aparecer para o usuário é o login e o logout, os métodos de criptografia por trás e etc. não precisam ficar visíveis para o usuário.). O que for estritamente 
+
+o que for imutável como cpf colocamos como readonly.
+
+
+Obs: o python não trabalha bem com encapsulamento.
+em python privado é o duplo sublinhado(__)
+
+buscar sobre o acoplamento em encapsulamento.

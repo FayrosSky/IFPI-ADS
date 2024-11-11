@@ -1,0 +1,3 @@
+se nossas aplicações estiver muito if é porque tá errado.
+excessões têm menos perfomance(mas não é para nos preocuparmos com isso agora)
+a vantagem das exceções é que ela para o fluxo do código.

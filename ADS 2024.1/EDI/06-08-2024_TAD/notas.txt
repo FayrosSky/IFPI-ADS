@@ -1,0 +1,23 @@
+aqui, estamos aprendendo os primórdios de orientação a objetos.
+
+
+quando a variável é do tipo ponteiro a gente acessa seus atributos via seta (ponto -> x = x;) se não fosse do tipo ponteiro a gente inseria via ponto(ponto.x = x);
+
+observe que a main está orientada a interface e não orientada 
+
+
+observe que a diferença que a gente tem estrutura de dados, temos atributos ... [e  a primeira vez que temos ...estruturas de dados consegue representar coisas do mundo real por meio de es
+
+.h representa como funciona, como ter o melhor de dela... isso é a api. já os detalhes internos ponto.c ele não precisa saber.
+
+
+design system (arquitetar o software) x implementar o software
+
+o que fazemos é criar um software para outro software usar dentro do programa princial, isso é encapsulamento.
+
+observe que o nosso problema baixo acomplamento (a interdependencia entre bibliotecas, é uma dependencia se os caras mudarem lá a gente pode mudar aqui... nesse caso temos que fazer um wrap para não ter essa dependencia. en resumo: controlar as dependencias) e coesão(papel claro de cada coisa: função, variavel... separação clara dos papeis).. uma função que tenha duas funções não é bom: por exemplo, uma função saque que envia uma mensagem ao fazer o saque. 
+
+Observe que temos uma modularização, assim, isso serve para trabalhar em equipe.observe que os softwares da vida real são gigantesco, assim, um painel de led pode ser extremamente complexo, assim, se não estudar princíos de arquiteturas de softwares para ele não engolir.
+
+assim, no mundo real o que mais vamos ouvir em uma empresa é: "vamos refazer o código, pois 
+

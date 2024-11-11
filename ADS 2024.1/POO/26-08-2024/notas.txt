@@ -1,0 +1,5 @@
+ambiente de teste, ambiente de homologação e ambiente de produção. Sempre fazer no ambiente mais próximo do servidor.... esse negócio de que roda localmente é mero detalhe e ninguém quer saber disso!
+
+Meio de persistÊncia podem ser em memória ou em disco. O mais completo é o arquivo de texto
+
+conceitos de POO como classe abstrata e interface ninguém entende é cavernoso!!

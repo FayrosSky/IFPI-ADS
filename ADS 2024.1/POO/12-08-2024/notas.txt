@@ -1,0 +1,77 @@
+	O refere-se à capacidade de um método ou função se comportar de maneira diferente com base no objeto que o invoca. Em termos simples, "polimorfismo" significa "múltiplas formas" e permite que diferentes classes derivadas de uma mesma superclasse respondam a uma mesma chamada de método de maneiras distintas.
+
+Polimorfismo estático(ou sobrecarga): 
+	Ocorre em tempo de compilação e se refere à capacidade de um método ter várias implementações na mesma classe, diferenciadas pelos parâmetros que recebem. Por exemplo, um método soma pode ser definido para aceitar diferentes tipos de parâmetros, como inteiros ou números de ponto flutuante, permitindo que o mesmo método execute operações diferentes dependendo dos argumentos fornecidos.
+
+Polimorfismo Dinâmico(ou sobrescrita):
+
+Acontece em tempo de execução e se refere à habilidade de um método em subclasses de redefinir um método da superclasse. Isso significa que, embora o método tenha a mesma assinatura, seu comportamento pode variar de acordo com a classe do objeto que o invoca. Por exemplo, se uma superclasse Animal tem um método falar, subclasses como Cachorro e Gato podem implementar esse método de formas diferentes, emitindo sons distintos quando chamado.
+	
+
+
+em resumo, polimorfismo: é usado para não termos que usar várias funções(métodos) no mesmo código, assim a gente precisa alterar só o que vai entrar no método que seja diferente das outras funções.
+por exemplo:
+
+
+ 
+class Animal {
+    public virtual void Falar() {
+        Console.WriteLine("Animal faz um som");
+    }
+}
+
+class Cachorro : Animal {
+    public override void Falar() {
+        Console.WriteLine("Cachorro late");
+    }
+}
+
+class Gato : Animal {
+    public override void Falar() {
+        Console.WriteLine("Gato mia");
+    }
+}
+
+Animal meuAnimal = new Cachorro();
+meuAnimal.Falar(); // Saída: Cachorro late
+
+
+
+conceito de cast em POO
+
+
+
+Quando usar o instaceof 
+
+
+
+observe que quando o construtor já estiver herdando de outra classe, já podemos usar o super e acessar o que já temos lá.
+
+a herança permite tendo uma classe base ter suas classes descendentes.
+
+Uma classe é uma estrutura que encapsula dados e funcionalidades. Por exemplo:
+typescript
+
+class Carro {
+    modelo: string;
+    ano: number;
+
+    constructor(modelo: string, ano: number) {
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    mostrarDetalhes(): string {
+        return `Modelo: ${this.modelo}, Ano: ${this.ano}`;
+    }
+}
+
+Instância:
+uma instância é um objeto criado a partir de uma classe. Cada instância pode ter seus próprios valores para as propriedades definidas na classe.
+
+Instanciação:
+A instanciação, em typescript, é feita usando a palavra-chave "new", que cria umnovo objeto a partir da classe. Por exemplo:
+const meuCarro = new Carro("Fusca", 1970)
+
+Acesso a Propriedades e Métodos:
+console.log(meuCarro.mostrarDetalhes()); // saída: Modelo: Fusca, Ano: 1970
