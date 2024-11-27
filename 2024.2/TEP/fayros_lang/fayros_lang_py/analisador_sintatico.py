@@ -98,7 +98,7 @@ if __name__== '__main__':
     ELSE
         PRINT 'x é menor ou igual a 5'
     END IF
-    END
+    END 
     """
     code_example = "SET x TO + 1 2"
     tokens = tokenize_lines(code_example)

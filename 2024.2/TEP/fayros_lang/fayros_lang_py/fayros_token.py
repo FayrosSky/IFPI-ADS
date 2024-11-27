@@ -20,7 +20,7 @@ token_patterns = [
     (r'FALSE', 'FALSE'),
     (r'\+', 'PLUS'),
     (r'-', 'MINUS'),
-    (r'TO', 'TO'), 
+    (r'TO', 'TO'),
     (r'\*', 'MULT'),
     (r'/', 'DIV'),
     (r'\\', 'INT_DIV'),  # Inteiro divisão
